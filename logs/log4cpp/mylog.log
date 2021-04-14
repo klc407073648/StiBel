@@ -1,0 +1,49 @@
+[2021-03-13 20:57:32:634 - INFO](Login):LoggerManager created, name is Login
+[2021-03-13 20:57:32:634 - INFO](CMyRedis):LoggerManager created, name is CMyRedis
+[2021-03-13 20:57:32:635 - INFO](Register):LoggerManager created, name is Register
+[2021-03-13 20:57:32:635 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-13 20:57:32:635 - INFO](Config):LoggerManager created, name is Config
+[2021-03-13 20:57:32:635 - INFO](Event):LoggerManager created, name is Event
+[2021-03-13 20:57:32:635 - INFO](CMyRedis):check connect: 1
+[2021-03-13 20:57:32:638 - INFO](CMyRedis):myRedis.Get hello is world
+[2021-03-13 20:57:32:641 - INFO](Config):mysql_host=localhost,mysql_user=root,mysql_passwd=klczxas789,mysql_dbname=yourdb,m_name=conf.json,m_description=This is conf json,m_type=json
+[2021-03-13 20:57:32:641 - INFO](Config):Reading Complete!
+[2021-03-13 20:57:32:641 - DEBUG](Config):Config()
+[2021-03-13 20:57:32:641 - INFO](Event):add /register to m_EventMap
+[2021-03-13 20:57:32:641 - INFO](Event):add /login to m_EventMap
+[2021-03-13 20:57:32:641 - INFO](Event):add /logout to m_EventMap
+[2021-03-13 20:57:32:641 - INFO](Event):add /upload to m_EventMap
+[2021-03-13 20:57:32:641 - INFO](Event):multiple thread ,num=10
+[2021-03-13 20:58:09:994 - INFO](Event):find Event: /register
+[2021-03-13 20:58:09:994 - DEBUG](Register):Register::reg() method : POST,  url: /register,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-13 20:58:10:041 - INFO](Register):m_passwd encode:a2xjMTIzNDU2
+[2021-03-13 20:58:10:065 - ERROR](Register):mysql->getErrno(): 0 ,mysql->getErrStr(): 
+[2021-03-13 20:58:10:065 - DEBUG](Register):reg end
+[2021-03-13 20:58:13:717 - INFO](Event):find Event: /login
+[2021-03-13 20:58:13:717 - DEBUG](Login):Login::login() method : POST,  url: /login,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-13 20:58:13:718 - DEBUG](Login):sql_insert=select * from user where user='klc123456' AND passwd='a2xjMTIzNDU2';
+[2021-03-13 20:58:13:718 - ERROR](Login):mysql->getAffectedRows(): 2 ,mysql->getErrStr(): 
+[2021-03-13 20:58:13:718 - INFO](Login):mLoginInfoMap:user = klc123456,token = klc123456123456
+[2021-03-13 20:58:13:720 - DEBUG](Login):login end
+[2021-03-13 20:58:20:922 - INFO](Event):find Event: /login
+[2021-03-13 20:58:20:923 - DEBUG](Login):Login::login() method : POST,  url: /login,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-13 20:58:20:923 - DEBUG](Login):sql_insert=select * from user where user='klc123456' AND passwd='a2xjMTIzNDU2';
+[2021-03-13 20:58:20:923 - ERROR](Login):mysql->getAffectedRows(): 2 ,mysql->getErrStr(): 
+[2021-03-13 20:58:20:923 - INFO](Login):mLoginInfoMap:user = klc123456,token = klc123456123456
+[2021-03-13 20:58:20:923 - DEBUG](Login):login end
+[2021-03-13 20:58:28:483 - INFO](Event):find Event: /register
+[2021-03-13 20:58:28:483 - DEBUG](Register):Register::reg() method : POST,  url: /register,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-13 20:58:28:483 - INFO](Register):m_passwd encode:a2xjMTIzNDU2
+[2021-03-13 20:58:28:487 - ERROR](Register):mysql->getErrno(): 0 ,mysql->getErrStr(): 
+[2021-03-13 20:58:28:487 - DEBUG](Register):reg end
+[2021-03-13 20:58:37:270 - INFO](Event):find Event: /login
+[2021-03-13 20:58:37:270 - DEBUG](Login):Login::login() method : POST,  url: /login,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-13 20:58:37:271 - DEBUG](Login):sql_insert=select * from user where user='klc123456' AND passwd='a2xjMTIzNDU2';
+[2021-03-13 20:58:37:271 - ERROR](Login):mysql->getAffectedRows(): 3 ,mysql->getErrStr(): 
+[2021-03-13 20:58:37:271 - INFO](Login):mLoginInfoMap:user = klc123456,token = klc123456123456
+[2021-03-13 20:58:37:271 - DEBUG](Login):login end
+[2021-03-13 20:58:54:420 - INFO](Event):find Event: /register
+[2021-03-13 20:58:54:420 - DEBUG](Register):Register::reg() method : POST,  url: /register,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-13 20:58:54:420 - INFO](Register):m_passwd encode:a2xjMTIzNDU2
+[2021-03-13 20:58:54:425 - ERROR](Register):mysql->getErrno(): 0 ,mysql->getErrStr(): 
+[2021-03-13 20:58:54:425 - DEBUG](Register):reg end

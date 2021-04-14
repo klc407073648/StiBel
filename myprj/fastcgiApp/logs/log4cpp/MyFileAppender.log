@@ -1,0 +1,434 @@
+[2021-03-24 22:34:19:722 - INFO](Login):LoggerManager created, name is Login
+[2021-03-24 22:34:19:725 - INFO](Register):LoggerManager created, name is Register
+[2021-03-24 22:34:19:727 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-24 22:34:19:729 - INFO](Config):LoggerManager created, name is Config
+[2021-03-24 22:34:19:731 - INFO](Event):LoggerManager created, name is Event
+[2021-03-24 22:34:19:732 - INFO](Config):Reading Complete!
+[2021-03-24 22:34:19:732 - DEBUG](Config):Config()
+[2021-03-24 22:34:56:977 - INFO](Login):LoggerManager created, name is Login
+[2021-03-24 22:34:56:979 - INFO](Register):LoggerManager created, name is Register
+[2021-03-24 22:34:56:981 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-24 22:34:56:982 - INFO](Config):LoggerManager created, name is Config
+[2021-03-24 22:34:56:984 - INFO](Event):LoggerManager created, name is Event
+[2021-03-24 22:34:56:984 - INFO](Config):Reading Complete!
+[2021-03-24 22:34:56:984 - DEBUG](Config):Config()
+[2021-03-24 22:37:13:827 - INFO](Login):LoggerManager created, name is Login
+[2021-03-24 22:37:13:829 - INFO](Register):LoggerManager created, name is Register
+[2021-03-24 22:37:13:830 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-24 22:37:13:832 - INFO](Config):LoggerManager created, name is Config
+[2021-03-24 22:37:13:834 - INFO](Event):LoggerManager created, name is Event
+[2021-03-24 22:37:13:834 - INFO](Config):Reading Complete!
+[2021-03-24 22:37:13:834 - DEBUG](Config):Config()
+[2021-03-24 22:46:14:694 - INFO](Login):LoggerManager created, name is Login
+[2021-03-24 22:46:14:696 - INFO](Register):LoggerManager created, name is Register
+[2021-03-24 22:46:14:698 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-24 22:46:14:700 - INFO](Config):LoggerManager created, name is Config
+[2021-03-24 22:46:14:701 - INFO](Event):LoggerManager created, name is Event
+[2021-03-24 22:46:14:701 - INFO](Config):Reading Complete!
+[2021-03-24 22:46:14:701 - DEBUG](Config):Config()
+[2021-03-24 22:46:14:701 - INFO](Event):add /register to m_EventMap
+[2021-03-24 22:46:14:702 - INFO](Event):add /login to m_EventMap
+[2021-03-24 22:46:14:702 - INFO](Event):add /logout to m_EventMap
+[2021-03-24 22:46:14:702 - INFO](Event):add /upload to m_EventMap
+[2021-03-24 22:46:14:702 - INFO](Event):multiple thread ,num=10
+[2021-03-24 22:46:14:702 - INFO](Event):threadID: 0 is running
+[2021-03-24 22:47:08:293 - INFO](Login):LoggerManager created, name is Login
+[2021-03-24 22:47:08:296 - INFO](Register):LoggerManager created, name is Register
+[2021-03-24 22:47:08:298 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-24 22:47:08:299 - INFO](Config):LoggerManager created, name is Config
+[2021-03-24 22:47:08:301 - INFO](Event):LoggerManager created, name is Event
+[2021-03-24 22:47:08:301 - INFO](Config):Reading Complete!
+[2021-03-24 22:47:08:301 - DEBUG](Config):Config()
+[2021-03-24 22:47:08:301 - INFO](Event):add /register to m_EventMap
+[2021-03-24 22:47:08:301 - INFO](Event):add /login to m_EventMap
+[2021-03-24 22:47:08:301 - INFO](Event):add /logout to m_EventMap
+[2021-03-24 22:47:08:302 - INFO](Event):add /upload to m_EventMap
+[2021-03-24 22:47:08:302 - INFO](Event):multiple thread ,num=10
+[2021-03-24 22:47:08:307 - INFO](Event):threadID: 2 is running
+[2021-03-24 22:47:08:308 - INFO](Event):threadID: 3 is running
+[2021-03-24 22:47:08:310 - INFO](Event):threadID: 4 is running
+[2021-03-24 22:47:08:311 - INFO](Event):threadID: 5 is running
+[2021-03-24 22:47:08:312 - INFO](Event):threadID: 6 is running
+[2021-03-24 22:47:08:313 - INFO](Event):threadID: 7 is running
+[2021-03-24 22:47:08:315 - INFO](Event):threadID: 8 is running
+[2021-03-24 22:47:08:316 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:47:08:317 - INFO](Event):threadID: 0 is running
+[2021-03-24 22:47:25:818 - INFO](Login):LoggerManager created, name is Login
+[2021-03-24 22:47:25:821 - INFO](Register):LoggerManager created, name is Register
+[2021-03-24 22:47:25:823 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-24 22:47:25:824 - INFO](Config):LoggerManager created, name is Config
+[2021-03-24 22:47:25:826 - INFO](Event):LoggerManager created, name is Event
+[2021-03-24 22:47:25:827 - INFO](Config):Reading Complete!
+[2021-03-24 22:47:25:827 - DEBUG](Config):Config()
+[2021-03-24 22:47:25:827 - INFO](Event):add /register to m_EventMap
+[2021-03-24 22:47:25:827 - INFO](Event):add /login to m_EventMap
+[2021-03-24 22:47:25:827 - INFO](Event):add /logout to m_EventMap
+[2021-03-24 22:47:25:827 - INFO](Event):add /upload to m_EventMap
+[2021-03-24 22:47:25:827 - INFO](Event):multiple thread ,num=10
+[2021-03-24 22:47:25:832 - INFO](Event):threadID: 2 is running
+[2021-03-24 22:47:25:834 - INFO](Event):threadID: 3 is running
+[2021-03-24 22:47:25:835 - INFO](Event):threadID: 4 is running
+[2021-03-24 22:47:25:836 - INFO](Event):threadID: 5 is running
+[2021-03-24 22:47:25:838 - INFO](Event):threadID: 6 is running
+[2021-03-24 22:47:25:839 - INFO](Event):threadID: 7 is running
+[2021-03-24 22:47:25:840 - INFO](Event):threadID: 8 is running
+[2021-03-24 22:47:25:841 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:47:25:843 - INFO](Event):threadID: 0 is running
+[2021-03-24 22:48:32:771 - INFO](Login):LoggerManager created, name is Login
+[2021-03-24 22:48:32:773 - INFO](Register):LoggerManager created, name is Register
+[2021-03-24 22:48:32:774 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-24 22:48:32:776 - INFO](Config):LoggerManager created, name is Config
+[2021-03-24 22:48:32:777 - INFO](Event):LoggerManager created, name is Event
+[2021-03-24 22:48:32:777 - INFO](Config):Reading Complete!
+[2021-03-24 22:48:32:778 - DEBUG](Config):Config()
+[2021-03-24 22:48:32:778 - INFO](Event):add /register to m_EventMap
+[2021-03-24 22:48:32:778 - INFO](Event):add /login to m_EventMap
+[2021-03-24 22:48:32:778 - INFO](Event):add /logout to m_EventMap
+[2021-03-24 22:48:32:778 - INFO](Event):add /upload to m_EventMap
+[2021-03-24 22:48:32:778 - INFO](Event):multiple thread ,num=10
+[2021-03-24 22:48:32:778 - INFO](Event):threadID: 0 is running
+[2021-03-24 22:48:32:778 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:48:32:778 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:48:32:778 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:48:32:778 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:48:32:778 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:48:32:778 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:48:32:778 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:48:32:778 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:48:32:778 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:49:19:728 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /register
+[2021-03-24 22:49:19:728 - INFO](Event):find Event: /register
+[2021-03-24 22:49:19:741 - DEBUG](Register):Register::reg() method : POST,  url: /register,  params: user=dcscsdccda1111&passwd=dcscsdccda1111, token: dcscsdccda1111123456
+[2021-03-24 22:49:19:868 - INFO](Register):m_passwd encode:ZGNzY3NkY2NkYTExMTE=
+[2021-03-24 22:49:19:911 - ERROR](Register):mysql->getErrno(): 0 ,mysql->getErrStr(): 
+[2021-03-24 22:49:19:911 - DEBUG](Register):reg end
+[2021-03-24 22:50:16:608 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /login
+[2021-03-24 22:50:16:608 - INFO](Event):find Event: /login
+[2021-03-24 22:53:49:068 - INFO](Login):LoggerManager created, name is Login
+[2021-03-24 22:53:49:070 - INFO](Register):LoggerManager created, name is Register
+[2021-03-24 22:53:49:072 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-24 22:53:49:073 - INFO](Config):LoggerManager created, name is Config
+[2021-03-24 22:53:49:075 - INFO](Event):LoggerManager created, name is Event
+[2021-03-24 22:53:49:075 - INFO](Config):Reading Complete!
+[2021-03-24 22:53:49:075 - DEBUG](Config):Config()
+[2021-03-24 22:53:49:075 - INFO](Event):add /register to m_EventMap
+[2021-03-24 22:53:49:075 - INFO](Event):add /login to m_EventMap
+[2021-03-24 22:53:49:075 - INFO](Event):add /logout to m_EventMap
+[2021-03-24 22:53:49:075 - INFO](Event):add /upload to m_EventMap
+[2021-03-24 22:53:49:075 - INFO](Event):multiple thread ,num=10
+[2021-03-24 22:53:49:075 - INFO](Event):threadID: 0 is running
+[2021-03-24 22:53:49:075 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:53:49:075 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:53:49:076 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:53:49:076 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:53:49:076 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:53:49:076 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:53:49:076 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:53:49:076 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:53:49:076 - INFO](Event):threadID: 9 is running
+[2021-03-24 22:53:56:440 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /register
+[2021-03-24 22:53:56:441 - INFO](Event):find Event: /register
+[2021-03-24 22:53:56:441 - DEBUG](Register):Register::reg() method : POST,  url: /register,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-24 22:53:56:444 - INFO](Register):m_passwd encode:a2xjMTIzNDU2
+[2021-03-24 22:53:56:451 - ERROR](Register):mysql->getErrno(): 0 ,mysql->getErrStr(): 
+[2021-03-24 22:53:56:451 - DEBUG](Register):reg end
+[2021-03-24 22:54:14:968 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /login
+[2021-03-24 22:54:14:968 - INFO](Event):find Event: /login
+[2021-03-24 22:54:14:968 - DEBUG](Login):Login::login() method : POST,  url: /login,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-24 22:54:14:969 - DEBUG](Login):sql_insert=select * from user where user='klc123456' AND passwd='a2xjMTIzNDU2';
+[2021-03-24 22:54:14:969 - ERROR](Login):mysql->getAffectedRows(): 5 ,mysql->getErrStr(): 
+[2021-03-24 22:54:14:969 - INFO](Login):_loginInfoMap:user = klc123456,token = klc123456123456
+[2021-03-24 22:54:14:969 - DEBUG](Login):login end
+[2021-03-24 23:00:16:074 - INFO](Login):LoggerManager created, name is Login
+[2021-03-24 23:00:16:076 - INFO](Register):LoggerManager created, name is Register
+[2021-03-24 23:00:16:077 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-24 23:00:16:079 - INFO](Config):LoggerManager created, name is Config
+[2021-03-24 23:00:16:081 - INFO](Event):LoggerManager created, name is Event
+[2021-03-24 23:00:16:081 - INFO](Config):Reading Complete!
+[2021-03-24 23:00:16:081 - DEBUG](Config):Config()
+[2021-03-24 23:00:16:081 - INFO](Event):add /register to m_EventMap
+[2021-03-24 23:00:16:081 - INFO](Event):add /login to m_EventMap
+[2021-03-24 23:00:16:081 - INFO](Event):add /logout to m_EventMap
+[2021-03-24 23:00:16:081 - INFO](Event):add /upload to m_EventMap
+[2021-03-24 23:00:16:081 - INFO](Event):multiple thread ,num=10
+[2021-03-24 23:00:16:081 - INFO](Event):threadID: 0 is running
+[2021-03-24 23:00:16:082 - INFO](Event):threadID: 9 is running
+[2021-03-24 23:00:16:082 - INFO](Event):threadID: 9 is running
+[2021-03-24 23:00:16:082 - INFO](Event):threadID: 9 is running
+[2021-03-24 23:00:16:082 - INFO](Event):threadID: 9 is running
+[2021-03-24 23:00:16:082 - INFO](Event):threadID: 9 is running
+[2021-03-24 23:00:16:082 - INFO](Event):threadID: 9 is running
+[2021-03-24 23:00:16:082 - INFO](Event):threadID: 9 is running
+[2021-03-24 23:00:16:082 - INFO](Event):threadID: 9 is running
+[2021-03-24 23:00:16:082 - INFO](Event):threadID: 9 is running
+[2021-03-24 23:00:31:033 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /login
+[2021-03-24 23:00:31:033 - INFO](Event):find Event: /login
+[2021-03-24 23:00:31:034 - DEBUG](Login):Login::login() method : POST,  url: /login,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-24 23:00:31:037 - DEBUG](Login):sql_insert=select * from user where user='klc123456' AND passwd='a2xjMTIzNDU2';
+[2021-03-24 23:00:31:037 - ERROR](Login):mysql->getAffectedRows(): 5 ,mysql->getErrStr(): 
+[2021-03-24 23:00:31:038 - INFO](Login):_loginInfoMap:user = klc123456,token = klc123456123456
+[2021-03-24 23:00:31:039 - DEBUG](Login):login end
+[2021-03-24 23:01:43:298 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /login
+[2021-03-24 23:01:43:298 - INFO](Event):find Event: /login
+[2021-03-24 23:01:43:298 - DEBUG](Login):Login::login() method : GET,  url: /login,  params: , token: 
+[2021-03-24 23:01:43:298 - DEBUG](Login):login end
+[2021-03-24 23:01:43:325 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /register
+[2021-03-24 23:01:43:325 - INFO](Event):find Event: /register
+[2021-03-24 23:01:43:325 - DEBUG](Register):Register::reg() method : GET,  url: /register,  params: , token: 
+[2021-03-24 23:01:43:325 - DEBUG](Register):reg end
+[2021-03-24 23:01:44:886 - INFO](Event):httpCookie: __guid=88882587.3627484090377252000.1616598104457.1528; monitor_count=2,requestMethod: GET,requestUri: /login
+[2021-03-24 23:01:44:886 - INFO](Event):find Event: /login
+[2021-03-24 23:01:44:886 - DEBUG](Login):Login::login() method : GET,  url: /login,  params: , token: 
+[2021-03-24 23:01:44:889 - DEBUG](Login):login end
+[2021-03-24 23:01:45:062 - INFO](Event):httpCookie: __guid=88882587.3627484090377252000.1616598104457.1528; monitor_count=2,requestMethod: GET,requestUri: /register
+[2021-03-24 23:01:45:062 - INFO](Event):find Event: /register
+[2021-03-24 23:01:45:062 - DEBUG](Register):Register::reg() method : GET,  url: /register,  params: , token: 
+[2021-03-24 23:01:45:062 - DEBUG](Register):reg end
+[2021-03-25 04:00:14:411 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /login
+[2021-03-25 04:00:14:411 - INFO](Event):find Event: /login
+[2021-03-25 04:00:14:411 - DEBUG](Login):Login::login() method : GET,  url: /login,  params: , token: 
+[2021-03-25 04:00:14:411 - DEBUG](Login):login end
+[2021-03-25 04:14:20:347 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /register
+[2021-03-25 04:14:20:347 - INFO](Event):find Event: /register
+[2021-03-25 04:14:20:347 - DEBUG](Register):Register::reg() method : GET,  url: /register,  params: , token: 
+[2021-03-25 04:14:20:347 - DEBUG](Register):reg end
+[2021-03-25 04:14:23:119 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /register
+[2021-03-25 04:14:23:119 - INFO](Event):find Event: /register
+[2021-03-25 04:14:23:119 - DEBUG](Register):Register::reg() method : GET,  url: /register,  params: , token: 
+[2021-03-25 04:14:23:119 - DEBUG](Register):reg end
+[2021-03-25 04:14:43:388 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /register
+[2021-03-25 04:14:43:388 - INFO](Event):find Event: /register
+[2021-03-25 04:14:43:388 - DEBUG](Register):Register::reg() method : GET,  url: /register,  params: , token: 
+[2021-03-25 04:14:43:388 - DEBUG](Register):reg end
+[2021-03-25 04:14:46:243 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /register
+[2021-03-25 04:14:46:243 - INFO](Event):find Event: /register
+[2021-03-25 04:14:46:243 - DEBUG](Register):Register::reg() method : GET,  url: /register,  params: , token: 
+[2021-03-25 04:14:46:243 - DEBUG](Register):reg end
+[2021-03-25 04:27:01:489 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /login
+[2021-03-25 04:27:01:489 - INFO](Event):find Event: /login
+[2021-03-25 04:27:01:489 - DEBUG](Login):Login::login() method : GET,  url: /login,  params: , token: 
+[2021-03-25 04:27:01:489 - DEBUG](Login):login end
+[2021-03-25 04:27:01:822 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /login
+[2021-03-25 04:27:01:822 - INFO](Event):find Event: /login
+[2021-03-25 04:27:01:822 - DEBUG](Login):Login::login() method : GET,  url: /login,  params: , token: 
+[2021-03-25 04:27:01:822 - DEBUG](Login):login end
+[2021-03-25 04:27:14:052 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /login
+[2021-03-25 04:27:14:053 - INFO](Event):find Event: /login
+[2021-03-25 04:27:14:053 - DEBUG](Login):Login::login() method : GET,  url: /login,  params: , token: 
+[2021-03-25 04:27:14:053 - DEBUG](Login):login end
+[2021-03-25 04:27:15:016 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /login
+[2021-03-25 04:27:15:016 - INFO](Event):find Event: /login
+[2021-03-25 04:27:15:016 - DEBUG](Login):Login::login() method : GET,  url: /login,  params: , token: 
+[2021-03-25 04:27:15:017 - DEBUG](Login):login end
+[2021-03-25 07:18:27:559 - INFO](Login):LoggerManager created, name is Login
+[2021-03-25 07:18:27:562 - INFO](Register):LoggerManager created, name is Register
+[2021-03-25 07:18:27:563 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-25 07:18:27:565 - INFO](Config):LoggerManager created, name is Config
+[2021-03-25 07:18:27:566 - INFO](Event):LoggerManager created, name is Event
+[2021-03-25 07:18:27:567 - INFO](Config):Reading Complete!
+[2021-03-25 07:18:27:567 - DEBUG](Config):Config()
+[2021-03-25 07:18:27:567 - INFO](Event):add /register to m_EventMap
+[2021-03-25 07:18:27:567 - INFO](Event):add /login to m_EventMap
+[2021-03-25 07:18:27:567 - INFO](Event):add /logout to m_EventMap
+[2021-03-25 07:18:27:567 - INFO](Event):add /upload to m_EventMap
+[2021-03-25 07:18:27:567 - INFO](Event):multiple thread ,num=10
+[2021-03-25 07:18:27:567 - INFO](Event):threadID: 0 is running
+[2021-03-25 07:18:27:567 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:18:27:567 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:18:27:567 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:18:27:567 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:18:27:567 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:18:27:567 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:18:27:567 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:18:27:567 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:18:27:567 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:19:31:897 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /login
+[2021-03-25 07:19:31:897 - INFO](Event):find Event: /login
+[2021-03-25 07:19:31:902 - DEBUG](Login):Login::login() method : POST,  url: /login,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-25 07:19:31:932 - DEBUG](Login):sql_insert=select * from user where user='klc123456' AND passwd='a2xjMTIzNDU2';
+[2021-03-25 07:19:31:932 - ERROR](Login):mysql->getAffectedRows(): 5 ,mysql->getErrStr(): 
+[2021-03-25 07:19:31:932 - INFO](Login):_loginInfoMap:user = klc123456,token = klc123456123456
+[2021-03-25 07:19:31:932 - INFO](Login):mypath = index.html
+[2021-03-25 07:19:31:932 - DEBUG](Login):login end
+[2021-03-25 07:25:25:915 - INFO](Login):LoggerManager created, name is Login
+[2021-03-25 07:25:25:917 - INFO](Register):LoggerManager created, name is Register
+[2021-03-25 07:25:25:918 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-25 07:25:25:920 - INFO](Config):LoggerManager created, name is Config
+[2021-03-25 07:25:25:922 - INFO](Event):LoggerManager created, name is Event
+[2021-03-25 07:25:25:922 - INFO](Config):Reading Complete!
+[2021-03-25 07:25:25:922 - DEBUG](Config):Config()
+[2021-03-25 07:25:25:922 - INFO](Event):add /register to m_EventMap
+[2021-03-25 07:25:25:922 - INFO](Event):add /login to m_EventMap
+[2021-03-25 07:25:25:922 - INFO](Event):add /logout to m_EventMap
+[2021-03-25 07:25:25:922 - INFO](Event):add /upload to m_EventMap
+[2021-03-25 07:25:25:922 - INFO](Event):multiple thread ,num=10
+[2021-03-25 07:25:25:922 - INFO](Event):threadID: 0 is running
+[2021-03-25 07:25:25:922 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:25:25:922 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:25:25:922 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:25:25:922 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:25:25:922 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:25:25:922 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:25:25:922 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:25:25:922 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:25:25:922 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:27:17:205 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /login
+[2021-03-25 07:27:17:205 - INFO](Event):find Event: /login
+[2021-03-25 07:27:17:205 - DEBUG](Login):Login::login() method : GET,  url: /login,  params: , token: 
+[2021-03-25 07:27:17:206 - DEBUG](Login):login end
+[2021-03-25 07:27:28:167 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /login
+[2021-03-25 07:27:28:167 - INFO](Event):find Event: /login
+[2021-03-25 07:27:28:167 - DEBUG](Login):Login::login() method : POST,  url: /login,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-25 07:27:28:170 - DEBUG](Login):sql_insert=select * from user where user='klc123456' AND passwd='a2xjMTIzNDU2';
+[2021-03-25 07:27:28:170 - ERROR](Login):mysql->getAffectedRows(): 5 ,mysql->getErrStr(): 
+[2021-03-25 07:27:28:170 - INFO](Login):_loginInfoMap:user = klc123456,token = klc123456123456
+[2021-03-25 07:27:28:170 - INFO](Login):mypath = index.html
+[2021-03-25 07:27:28:170 - DEBUG](Login):login end
+[2021-03-25 07:29:10:312 - INFO](Login):LoggerManager created, name is Login
+[2021-03-25 07:29:10:314 - INFO](Register):LoggerManager created, name is Register
+[2021-03-25 07:29:10:316 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-25 07:29:10:318 - INFO](Config):LoggerManager created, name is Config
+[2021-03-25 07:29:10:319 - INFO](Event):LoggerManager created, name is Event
+[2021-03-25 07:29:10:320 - INFO](Config):Reading Complete!
+[2021-03-25 07:29:10:320 - DEBUG](Config):Config()
+[2021-03-25 07:29:10:320 - INFO](Event):add /register to m_EventMap
+[2021-03-25 07:29:10:320 - INFO](Event):add /login to m_EventMap
+[2021-03-25 07:29:10:320 - INFO](Event):add /logout to m_EventMap
+[2021-03-25 07:29:10:320 - INFO](Event):add /upload to m_EventMap
+[2021-03-25 07:29:10:320 - INFO](Event):multiple thread ,num=10
+[2021-03-25 07:29:10:320 - INFO](Event):threadID: 0 is running
+[2021-03-25 07:29:10:320 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:29:10:320 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:29:10:320 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:29:10:320 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:29:10:320 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:29:10:320 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:29:10:320 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:29:10:320 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:29:10:320 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:29:27:706 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /login
+[2021-03-25 07:29:27:706 - INFO](Event):find Event: /login
+[2021-03-25 07:29:27:706 - DEBUG](Login):Login::login() method : POST,  url: /login,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-25 07:29:27:710 - DEBUG](Login):sql_insert=select * from user where user='klc123456' AND passwd='a2xjMTIzNDU2';
+[2021-03-25 07:29:27:710 - ERROR](Login):mysql->getAffectedRows(): 5 ,mysql->getErrStr(): 
+[2021-03-25 07:29:27:710 - INFO](Login):_loginInfoMap:user = klc123456,token = klc123456123456
+[2021-03-25 07:29:27:710 - INFO](Login):html_path:
+[2021-03-25 07:29:27:710 - INFO](Login):mypath = index.html
+[2021-03-25 07:29:27:710 - DEBUG](Login):login end
+[2021-03-25 07:31:59:445 - INFO](Login):LoggerManager created, name is Login
+[2021-03-25 07:31:59:447 - INFO](Register):LoggerManager created, name is Register
+[2021-03-25 07:31:59:449 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-25 07:31:59:451 - INFO](Config):LoggerManager created, name is Config
+[2021-03-25 07:31:59:452 - INFO](Event):LoggerManager created, name is Event
+[2021-03-25 07:31:59:452 - INFO](Config):html_path:/usr/share/nginx/test/
+[2021-03-25 07:31:59:452 - INFO](Config):json_description:This is conf json
+[2021-03-25 07:31:59:452 - INFO](Config):json_name:conf.json
+[2021-03-25 07:31:59:452 - INFO](Config):json_type:json
+[2021-03-25 07:31:59:452 - INFO](Config):log4cpp_conf:./conf/conf.json
+[2021-03-25 07:31:59:452 - INFO](Config):mysql_dbname:yourdb
+[2021-03-25 07:31:59:452 - INFO](Config):mysql_host:localhost
+[2021-03-25 07:31:59:452 - INFO](Config):mysql_passwd:klczxas789
+[2021-03-25 07:31:59:452 - INFO](Config):mysql_user:root
+[2021-03-25 07:31:59:452 - INFO](Config):redis_expire_time:120
+[2021-03-25 07:31:59:452 - INFO](Config):redis_ip:127.0.0.1
+[2021-03-25 07:31:59:452 - INFO](Config):redis_passwd:
+[2021-03-25 07:31:59:453 - INFO](Config):redis_port:6379
+[2021-03-25 07:31:59:453 - INFO](Config):upload_path:./pic/
+[2021-03-25 07:31:59:453 - INFO](Config):Reading Complete!
+[2021-03-25 07:31:59:453 - DEBUG](Config):Config()
+[2021-03-25 07:31:59:453 - INFO](Event):add /register to m_EventMap
+[2021-03-25 07:31:59:453 - INFO](Event):add /login to m_EventMap
+[2021-03-25 07:31:59:453 - INFO](Event):add /logout to m_EventMap
+[2021-03-25 07:31:59:453 - INFO](Event):add /upload to m_EventMap
+[2021-03-25 07:31:59:453 - INFO](Event):multiple thread ,num=10
+[2021-03-25 07:31:59:453 - INFO](Event):threadID: 0 is running
+[2021-03-25 07:31:59:453 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:31:59:453 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:31:59:453 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:31:59:453 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:31:59:453 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:31:59:453 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:31:59:453 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:31:59:453 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:31:59:453 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:51:01:970 - INFO](Login):LoggerManager created, name is Login
+[2021-03-25 07:51:01:972 - INFO](Register):LoggerManager created, name is Register
+[2021-03-25 07:51:01:973 - INFO](Upload):LoggerManager created, name is Upload
+[2021-03-25 07:51:01:975 - INFO](Config):LoggerManager created, name is Config
+[2021-03-25 07:51:01:977 - INFO](Event):LoggerManager created, name is Event
+[2021-03-25 07:51:01:977 - INFO](Config):m_mapParams begin:
+[2021-03-25 07:51:01:977 - INFO](Config):html_path:/usr/share/nginx/test/
+[2021-03-25 07:51:01:977 - INFO](Config):json_description:This is conf json
+[2021-03-25 07:51:01:978 - INFO](Config):json_name:conf.json
+[2021-03-25 07:51:01:978 - INFO](Config):json_type:json
+[2021-03-25 07:51:01:978 - INFO](Config):log4cpp_conf:./conf/conf.json
+[2021-03-25 07:51:01:978 - INFO](Config):mysql_dbname:yourdb
+[2021-03-25 07:51:01:978 - INFO](Config):mysql_host:localhost
+[2021-03-25 07:51:01:978 - INFO](Config):mysql_passwd:klczxas789
+[2021-03-25 07:51:01:978 - INFO](Config):mysql_user:root
+[2021-03-25 07:51:01:978 - INFO](Config):redis_expire_time:120
+[2021-03-25 07:51:01:978 - INFO](Config):redis_ip:127.0.0.1
+[2021-03-25 07:51:01:978 - INFO](Config):redis_passwd:
+[2021-03-25 07:51:01:978 - INFO](Config):redis_port:6379
+[2021-03-25 07:51:01:978 - INFO](Config):upload_path:./pic/
+[2021-03-25 07:51:01:978 - INFO](Config):m_mapParams end
+[2021-03-25 07:51:01:978 - INFO](Config):Reading Complete!
+[2021-03-25 07:51:01:978 - DEBUG](Config):Config()
+[2021-03-25 07:51:01:978 - INFO](Login):Login::Login()
+[2021-03-25 07:51:01:978 - INFO](Register):Register::Register()
+[2021-03-25 07:51:01:978 - INFO](Upload):Upload::Upload()
+[2021-03-25 07:51:01:978 - INFO](Event):add /register to m_EventMap
+[2021-03-25 07:51:01:978 - INFO](Event):add /login to m_EventMap
+[2021-03-25 07:51:01:978 - INFO](Event):add /logout to m_EventMap
+[2021-03-25 07:51:01:978 - INFO](Event):add /upload to m_EventMap
+[2021-03-25 07:51:01:978 - INFO](Event):multiple thread ,num=10
+[2021-03-25 07:51:01:978 - INFO](Event):threadID: 0 is running
+[2021-03-25 07:51:01:978 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:51:01:978 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:51:01:978 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:51:01:978 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:51:01:978 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:51:01:978 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:51:01:978 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:51:01:978 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:51:01:978 - INFO](Event):threadID: 9 is running
+[2021-03-25 07:51:22:703 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /register
+[2021-03-25 07:51:22:704 - INFO](Event):find Event: /register
+[2021-03-25 07:51:22:704 - DEBUG](Register):Register::reg() method : POST,  url: /register,  params: user=sdcscdscd&passwd=sdcscdsdcs, token: sdcscdscd123456
+[2021-03-25 07:51:22:710 - ERROR](Register):passwd match error: sdcscdsdcs
+[2021-03-25 07:51:37:304 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /register
+[2021-03-25 07:51:37:304 - INFO](Event):find Event: /register
+[2021-03-25 07:51:37:304 - DEBUG](Register):Register::reg() method : POST,  url: /register,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-25 07:51:37:304 - INFO](Register):m_passwd encode:a2xjMTIzNDU2
+[2021-03-25 07:51:37:318 - ERROR](Register):mysql->getErrno(): 0 ,mysql->getErrStr(): 
+[2021-03-25 07:51:37:321 - DEBUG](Register):reg end
+[2021-03-25 07:51:43:204 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /login
+[2021-03-25 07:51:43:204 - INFO](Event):find Event: /login
+[2021-03-25 07:51:43:204 - DEBUG](Login):Login::login() method : POST,  url: /login,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-25 07:51:43:207 - DEBUG](Login):sql_insert=select * from user where user='klc123456' AND passwd='a2xjMTIzNDU2';
+[2021-03-25 07:51:43:207 - ERROR](Login):mysql->getAffectedRows(): 6 ,mysql->getErrStr(): 
+[2021-03-25 07:51:43:207 - INFO](Login):_loginInfoMap:user = klc123456,token = klc123456123456
+[2021-03-25 07:51:43:209 - DEBUG](Login):login end
+[2021-03-25 07:52:20:365 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /register
+[2021-03-25 07:52:20:365 - INFO](Event):find Event: /register
+[2021-03-25 07:52:20:365 - DEBUG](Register):Register::reg() method : POST,  url: /register,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-25 07:52:20:365 - INFO](Register):m_passwd encode:a2xjMTIzNDU2
+[2021-03-25 07:52:20:370 - ERROR](Register):mysql->getErrno(): 0 ,mysql->getErrStr(): 
+[2021-03-25 07:52:20:370 - DEBUG](Register):reg end
+[2021-03-25 07:52:23:481 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /login
+[2021-03-25 07:52:23:481 - INFO](Event):find Event: /login
+[2021-03-25 07:52:23:481 - DEBUG](Login):Login::login() method : POST,  url: /login,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-25 07:52:23:482 - DEBUG](Login):sql_insert=select * from user where user='klc123456' AND passwd='a2xjMTIzNDU2';
+[2021-03-25 07:52:23:482 - ERROR](Login):mysql->getAffectedRows(): 7 ,mysql->getErrStr(): 
+[2021-03-25 07:52:23:482 - INFO](Login):_loginInfoMap:user = klc123456,token = klc123456123456
+[2021-03-25 07:52:23:482 - DEBUG](Login):login end
+[2021-03-25 07:54:07:976 - INFO](Event):httpCookie: ,requestMethod: POST,requestUri: /register
+[2021-03-25 07:54:07:976 - INFO](Event):find Event: /register
+[2021-03-25 07:54:07:976 - DEBUG](Register):Register::reg() method : POST,  url: /register,  params: user=klc123456&passwd=klc123456, token: klc123456123456
+[2021-03-25 07:54:07:976 - INFO](Register):m_passwd encode:a2xjMTIzNDU2
+[2021-03-25 07:54:07:983 - ERROR](Register):mysql->getErrno(): 0 ,mysql->getErrStr(): 
+[2021-03-25 07:54:07:983 - DEBUG](Register):reg end
+[2021-03-25 22:59:36:982 - INFO](Event):httpCookie: ,requestMethod: GET,requestUri: /login
+[2021-03-25 22:59:36:983 - INFO](Event):find Event: /login
+[2021-03-25 22:59:36:983 - DEBUG](Login):Login::login() method : GET,  url: /login,  params: , token: 
+[2021-03-25 22:59:36:984 - DEBUG](Login):login end

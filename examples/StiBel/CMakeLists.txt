@@ -1,0 +1,25 @@
+#StiBel
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${STIBEL_EXECUTABLE_OUTPUT_PATH})
+if(STIBEL_COMMON_LIBRARY)
+  add_subdirectory(Common)
+else()
+  add_subdirectory(Common EXCLUDE_FROM_ALL)
+endif()
+
+if(STIBEL_MYSQL_LIBRARY)
+  add_subdirectory(Data/MySQL)
+else()
+  add_subdirectory(Data/MySQL EXCLUDE_FROM_ALL)
+endif()
+
+if(STIBEL_LOG_LIBRARY)
+  add_subdirectory(Log)
+else()
+  add_subdirectory(Log EXCLUDE_FROM_ALL)
+endif()
+
+if(STIBEL_JSON_LIBRARY)
+  add_subdirectory(JSON)
+else()
+  add_subdirectory(JSON EXCLUDE_FROM_ALL)
+endif()
