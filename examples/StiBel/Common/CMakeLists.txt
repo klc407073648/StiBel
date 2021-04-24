@@ -18,3 +18,9 @@ ADD_EXECUTABLE( ThreadPoolTest ./source/ThreadPoolTest.cpp)
 
 #连接生成相关库
 TARGET_LINK_LIBRARIES( ThreadPoolTest ${STIBEL_COMMON_TEST_LIB} )
+
+#生成 
+ADD_EXECUTABLE( ConfigTest ./source/ConfigTest.cpp)
+
+#连接生成相关库
+TARGET_LINK_LIBRARIES( ConfigTest ${STIBEL_COMMON_TEST_LIB} )

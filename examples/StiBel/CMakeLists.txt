@@ -12,6 +12,12 @@ else()
   add_subdirectory(Data/MySQL EXCLUDE_FROM_ALL)
 endif()
 
+if(STIBEL_REDIS_LIBRARY)
+  add_subdirectory(Data/Redis)
+else()
+  add_subdirectory(Data/Redis EXCLUDE_FROM_ALL)
+endif()
+
 if(STIBEL_LOG_LIBRARY)
   add_subdirectory(Log)
 else()
