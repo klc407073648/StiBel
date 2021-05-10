@@ -45,6 +45,7 @@ SET(HIREDIS_INCLUDE  		${3PART_INCLUDE}/hiredis/include)
 SET(FASTCGI_INCLUDE  		${3PART_INCLUDE}/fastcgi/include)
 SET(POCO_INCLUDE  	 		${3PART_INCLUDE}/poco/include)
 SET(CPPUNIT_INCLUDE  	 	${3PART_INCLUDE}/cppunit/include)
+SET(YAMLCPP_INCLUDE  	 	${3PART_INCLUDE}/yamlcpp/include)
 
 # 设置自封装应用库的头文件
 SET(COMM_INCLUDE  ${PROJECT_SOURCE_DIR}/include/comlib)
@@ -65,7 +66,7 @@ SET(COMM_DIR   ${PROJECT_SOURCE_DIR}/lib/comlib)
 #属于g++搜索路径下的内容，即不在需要指定MYSQL_INCLUDE、MYSQL_DIR来添加工程的路径
 
 #设置自定义搜索路径
-set(CMAKE_INCLUDE_PATH ${JSONCPP_INCLUDE} ${LOG4CPP_INCLUDE} ${TINYXML_INCLUDE} ${ZEROMQ_INCLUDE} ${HIREDIS_INCLUDE} ${FASTCGI_INCLUDE} ${POCO_INCLUDE} ${POCO_INCLUDE} ${CPPUNIT_INCLUDE})
+set(CMAKE_INCLUDE_PATH ${JSONCPP_INCLUDE} ${LOG4CPP_INCLUDE} ${TINYXML_INCLUDE} ${ZEROMQ_INCLUDE} ${HIREDIS_INCLUDE} ${FASTCGI_INCLUDE} ${POCO_INCLUDE} ${POCO_INCLUDE} ${CPPUNIT_INCLUDE} ${YAMLCPP_INCLUDE})
 set(CMAKE_LIBRARY_PATH ${3PART_DIR} ${COMM_DIR})
 
 #搜索第三方应用库对应的头文件和库是否存在,来判断是否安装了对应库
@@ -92,6 +93,9 @@ find_library(POCO_LIBRARY NAMES PocoEncodings)
 
 find_path(CPPUNIT_INCLUDE_DIR cppunit/TestCase.h)
 find_library(CPPUNIT_LIBRARY NAMES cppunit)
+
+find_path(YAMLCPP_INCLUDE_DIR yaml-cpp/yaml.h)
+find_library(YAMLCPP_LIBRARY NAMES yaml-cpp)
 
 #打印第三方应用库的存在消息
 if(JSONCPP_INCLUDE_DIR AND JSONCPP_LIBRARY)
@@ -141,6 +145,12 @@ if(CPPUNIT_INCLUDE_DIR AND CPPUNIT_LIBRARY)
   message(STATUS "found cppunit")
 else()
   message(STATUS "not found cppunit")
+endif()
+
+if(YAMLCPP_INCLUDE_DIR AND YAMLCPP_LIBRARY)
+  message(STATUS "found yamlcpp")
+else()
+  message(STATUS "not found yamlcpp")
 endif()
 
 # 自封装应用库 是否存在
@@ -201,6 +211,7 @@ SET(LIB_POCO
 )
 SET(LIB_CPPUNIT cppunit dl)
 SET(LIB_MYSQL mysqlclient)
+SET(LIB_YAMLCPP  yaml-cpp)
 
 # 设置自封装应用库的lib链接名称
 SET(LIB_STIBEL_COMMON 	StiBel_common ${LIB_PTHREAD})

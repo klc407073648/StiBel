@@ -1,0 +1,7 @@
+暂时不支持在整个项目中运行
+单独运行方式：
+cd /home/new/build_lib/StiBel/examples/ToolClass/yamlcpp/source/
+mkdir build
+cd ./build
+cmake ..
+make

@@ -1,0 +1,10 @@
+name: Jason
+sex: male
+age: 18
+ID: 1001
+grades:
+  - Math: 100
+  - Chinese: 95
+  - English: 85
+  - C++: 97
+average: 94.25
