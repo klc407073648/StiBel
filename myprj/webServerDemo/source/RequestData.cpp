@@ -14,15 +14,35 @@
 #include <algorithm>
 #include <cstdlib>
 #include <fstream>
+#include "StiBel/Data/MySQL/MySQL.h"
 
 using namespace std;
-using StiBel::StringUtil;
+using StiBel::ShellUtil;
+using namespace StiBel::Data::MySQL;
 
 pthread_once_t MimeType::once_control = PTHREAD_ONCE_INIT;
 std::unordered_map<std::string, std::string> MimeType::mime;
+MySQL::ptr RequestData::_mySql=NULL;
 
-std::map<std::string, Json::Value> RequestData::rest_uri;
+void RequestData::connMySql()
+{
+	if(_mySql!=NULL)
+		return;
+    std::map<std::string, std::string> params;
+    //数据库的参数
+    params["host"] = "1.15.109.169";
+    params["user"] = "root";
+    params["port"] = "3307";
+    params["passwd"] = "123456";
+    params["dbname"] = "student";
 
+    MySQL::ptr mysql(new MySQL(params));
+    if(!mysql->connect()) {
+        std::cout << "connect fail" << std::endl;
+        return;
+    }
+    _mySql=mysql;
+}
 
 void MimeType::init()
 {
@@ -51,70 +71,33 @@ std::string MimeType::getMime(const std::string &suffix)
         return mime[suffix];
 }
 
-RequestData::RequestData(): 
-    now_read_pos(0), 
-    state(STATE_PARSE_URI), 
-    h_state(H_START), 
-    keep_alive(false), 
-    isAbleRead(true),
-    isAbleWrite(false),
-    events(0),
-    error(false)
+RequestData::RequestData() : now_read_pos(0),
+                             state(STATE_PARSE_URI),
+                             h_state(H_START),
+                             keep_alive(false),
+                             isAbleRead(true),
+                             isAbleWrite(false),
+                             events(0),
+                             error(false)
 {
     cout << "RequestData()" << endl;
-
-    if(rest_uri.size()==0)
-		parseInitJson();
+    connMySql();
 }
 
-RequestData::RequestData(int _epollfd, int _fd, std::string _path):
-    now_read_pos(0), 
-    state(STATE_PARSE_URI), 
-    h_state(H_START), 
-    keep_alive(false), 
-    path(_path), 
-    fd(_fd), 
-    epollfd(_epollfd),
-    isAbleRead(true),
-    isAbleWrite(false),
-    events(0),
-    error(false)
+RequestData::RequestData(int _epollfd, int _fd, std::string _path) : now_read_pos(0),
+                                                                     state(STATE_PARSE_URI),
+                                                                     h_state(H_START),
+                                                                     keep_alive(false),
+                                                                     path(_path),
+                                                                     fd(_fd),
+                                                                     epollfd(_epollfd),
+                                                                     isAbleRead(true),
+                                                                     isAbleWrite(false),
+                                                                     events(0),
+                                                                     error(false)
 {
     cout << "RequestData()" << endl;
-    if(rest_uri.size()==0)
-		parseInitJson();
-}
-
-void RequestData::parseInitJson()
-{
-    Json::Reader reader;
-    Json::Value data;
-
-    ifstream in( rootPath + defaultFileName, ios::binary);
-
-    if (!in.is_open())
-    {
-        cout << "Error opening file\n";
-        return;
-    }
-
-    if (reader.parse(in, data))
-    {
-        Json::Value::Members mem = data.getMemberNames();
-
-        for (auto iter = mem.begin(); iter != mem.end(); iter++)
-        {
-            std::string m_key = *iter;
-            Json::Value m_value = data[*iter];
-
-            rest_uri.insert(make_pair(m_key, m_value));
-        }
-    }
-
-    for (auto iter = rest_uri.begin(); iter != rest_uri.end(); ++iter)
-    {
-        cout << "mem:" << iter->first << " value:" << iter->second << endl;
-    }
+    connMySql();
 }
 
 RequestData::~RequestData()
@@ -361,7 +344,7 @@ URIState RequestData::parseURI()
 
     // Method
     vector<std::string> vec = {"null", "GET", "POST", "PUT", "DELETE", "HEAD"};
-    bool isFind=false;
+    bool isFind = false;
     for (int i = 1; i < vec.size(); i++)
     {
         int posTemp = request_line.find(vec[i]);
@@ -388,13 +371,13 @@ URIState RequestData::parseURI()
                 method = METHOD_HEAD;
                 break;
             }
-            isFind=true;
+            isFind = true;
             cout << "method: " << vec[i] << " method value: " << method << endl;
             break;
         }
     }
 
-    if(!isFind)
+    if (!isFind)
     {
         return PARSE_URI_ERROR;
     }
@@ -421,7 +404,7 @@ URIState RequestData::parseURI()
             }
 
             else
-                file_name = defaultFileName;
+                file_name = "judge.html";
         }
         pos = _pos;
     }
@@ -569,396 +552,61 @@ HeaderState RequestData::parseHeaders()
     return PARSE_HEADER_AGAIN;
 }
 
-void RequestData::analysisGetRequest()
-{
-    cout << "analysisGetRequest() begin:" << endl;
-
-    int findPos = -1;
-    Json::Value root = rest_uri[uri];
-
-    if (root.type() == Json::objectValue)
-    {
-        //如果是Json::objectValue，直接返回即可
-        if (uri_after == "") //Json::objectValue 必然没有 uri_after
-        {
-            //
-        }
-        else
-        {
-            realFile = "";
-            return;
-        }
-    }
-    else if (root.type() == Json::arrayValue)
-    {
-        if (uri_after == "")
-        {
-            //
-        }
-        else if (root.size() >= 0)
-        {
-
-            for (int i = 0; i < root.size(); i++)
-            {
-
-                Json::Value::Members mem = root[i].getMemberNames();
-                for (auto iter = mem.begin(); iter != mem.end(); iter++)
-                {
-                    string m_key = *iter;
-                    string m_value = root[i][*iter].toStyledString();
-                    cout << "Json::arrayValue m_key:[" << m_key << "] m_value:[" << m_value << "]" << endl;
-                    cout << "Json::arrayValue uri_after:[" << uri_after << "]" << endl;
-                    if (m_key == "id" && m_value == uri_after + "\n")
-                    {
-                        findPos = i;
-                        break;
-                    }
-                }
-
-                if (findPos != -1)
-                {
-                    root = root[findPos]; //取其中一个元素
-                    cout << "analysisGetRequest() root [" << root << "]" << endl;
-                    break;
-                }
-            }
-
-            //上述处理过程中，没有在root的内容里找到对应 "uri_after"的内容
-            if (findPos == -1)
-            {
-                realFile = "";
-                return;
-            }
-        }
-    }
-
-    ofstream ofs;
-    ofs.open(rootPath + "get.json");
-    ofs << root;
-    ofs.close();
-
-    realFile = rootPath + "get.json";
-}
-
-/*
-GET    /posts
-GET    /posts/1
-POST   /posts
-PUT    /posts/1
-PATCH  /posts/1
-DELETE /posts/1
-*/
-
-void RequestData::parseContent()
-{
-    int length = stoi(headers["Content-Length"]);
-    vector<char> data(inBuffer.begin(), inBuffer.begin() + length);
-
-    string postInfo = inBuffer.substr(0, length);
-    cout << "postInfo: " << postInfo << endl;
-
-    StringUtil::parseParam(postInfo, m_paramsMap);
-}
-
-void RequestData::analysisPostRequest()
-{
-    //已经存在的原始不能posts，返回404
-    cout << "[analysisPostRequest] bgein" << endl;
-
-    if (uri_after != "")
-    {
-        realFile = "";
-        return;
-    }
-
-    Json::Value &root = rest_uri[uri]; //获取uri对应的数据，一般为Json::objectValue或Json::arrayValue类型
-
-    //如果是Json::objectValue，直接替换里面的内容
-    if (root.type() == Json::objectValue)
-    {
-        cout << "[analysisPostRequest] root.type() == Json::objectValue" << endl;
-        Json::Value data;
-
-        //重新组织内容返回
-        for (auto m_iter = m_paramsMap.begin(); m_iter != m_paramsMap.end(); ++m_iter)
-        {
-            data[m_iter->first] = m_iter->second;
-        }
-
-        root = data;
-    }
-    else if (root.type() == Json::arrayValue)
-    {
-        cout << "[analysisPostRequest] root.type() == Json::arrayValue" << endl;
-
-        for (int i = 0; i < root.size(); i++)
-        {
-            Json::Value::Members mem = root[i].getMemberNames();
-            for (auto iter = mem.begin(); iter != mem.end(); iter++)
-            {
-                string m_key = *iter;
-                string m_value = root[i][*iter].toStyledString();
-
-                //遗留不填写id值的处理
-                //cout << "m_value:[" << m_value << "] ,m_paramsMap[id]" << m_paramsMap["id"] << endl;
-                if (m_key == "id" && m_value == m_paramsMap["id"] + "\n")
-                {
-                    realFile = "";
-                    return;
-                }
-            }
-        }
-
-        //如果id，不存在就重新组织一个
-        Json::Value data;
-
-        //重新组织内容返回
-        for (auto m_iter = m_paramsMap.begin(); m_iter != m_paramsMap.end(); ++m_iter)
-        {
-            if (m_iter->first == "id")
-            {
-                data[m_iter->first] = atoi((m_iter->second).c_str());
-            }
-            else
-            {
-                data[m_iter->first] = m_iter->second;
-            }
-        }
-
-        cout << "before:" << root << endl;
-        root[root.size()] = data;
-        cout << "after:" << root << endl;
-    }
-
-    ofstream ofs;
-    ofs.open(rootPath + "post.json");
-    ofs << root;
-    ofs.close();
-
-    realFile = rootPath + "post.json";
-
-    cout << "[analysisPostRequest] end" << endl;
-}
-
-void RequestData::analysisPutRequest()
-{
-
-    //已经存在的原始不能posts，返回404
-    cout << "[analysisPutRequest] begin" << endl;
-
-    Json::Reader reader;
-    Json::Value &root = rest_uri[uri];
-    Json::Value next;
-
-    bool isFind = false;
-
-    //如果是Json::objectValue，直接替换里面的内容
-    if (root.type() == Json::objectValue && uri_after == "")
-    {
-        cout << "root.type() == Json::objectValue" << endl;
-        Json::Value data;
-
-        //重新组织内容返回
-        for (auto m_iter = m_paramsMap.begin(); m_iter != m_paramsMap.end(); ++m_iter)
-        {
-            data[m_iter->first] = m_iter->second;
-        }
-
-        root = data;
-        next = root;
-    }
-    else if (root.type() == Json::arrayValue && uri_after != "")
-    {
-        cout << "root.type() == Json::arrayValue" << endl;
-        for (int i = 0; i < root.size(); i++)
-        {
-            cout << "This is i:" << i << endl;
-            Json::Value::Members mem = root[i].getMemberNames();
-            for (auto iter = mem.begin(); iter != mem.end(); iter++)
-            {
-                string m_key = *iter;
-                string m_value = root[i][*iter].toStyledString();
-
-                if (m_key == "id" && m_value == uri_after + "\n")
-                {
-                    cout << " in loop m_key:[" << m_key << "] m_value:[" << m_value << "]" << endl;
-                    Json::Value data;
-
-                    //重新组织内容返回
-                    for (auto m_iter = m_paramsMap.begin(); m_iter != m_paramsMap.end(); ++m_iter)
-                    {
-                        if (m_iter->first != "id")
-                        {
-                            root[i][m_iter->first] = m_iter->second;
-                            isFind = true;
-                        }
-                    }
-
-                    next = root[i];
-
-                    break;
-                }
-            }
-        }
-
-        if (!isFind)
-        {
-            realFile = "";
-            return;
-        }
-    }
-
-    ofstream ofs;
-    ofs.open(rootPath + "put.json");
-    ofs << next;
-    ofs.close();
-
-    realFile = rootPath + "put.json";
-}
-
-void RequestData::analysisDeleteRequest()
-{
-    //暂时未解决，删除应该返回为{}的问题
-    //已经存在的原始不能posts，返回404
-    cout << "[analysisDeleteRequest] begin" << endl;
-
-    Json::Value root = rest_uri[uri];
-
-    Json::Value next;
-    std::vector<std::string> vec;
-
-    //如果是Json::objectValue，直接替换里面的内容
-    if (root.type() == Json::objectValue)
-    {
-        realFile = "";
-        return;
-    }
-    else if (root.type() == Json::arrayValue && uri_after != "")
-    {
-        cout << "root.type() == Json::arrayValue" << endl;
-        for (int i = 0; i < root.size(); i++)
-        {
-            cout << "This is i:" << i << endl;
-            Json::Value::Members mem = root[i].getMemberNames();
-            for (auto iter = mem.begin(); iter != mem.end(); iter++)
-            {
-                string m_key = *iter;
-                string m_value = root[i][*iter].toStyledString();
-
-                vec.push_back(m_value);
-                if (m_key == "id" && m_value != uri_after + "\n")
-                {
-                    next.append(root[i]);
-
-                    break;
-                }
-            }
-        }
-    }
-    string m_str = uri_after + "\n";
-    std::vector<std::string>::iterator result = find(vec.begin(), vec.end(), m_str);
-
-    if (result == vec.end())
-    {
-        realFile = "";
-        return;
-    }
-
-    rest_uri[uri] = next;
-
-    ofstream ofs;
-    ofs.open(rootPath + "delete.json");
-    ofs << next;
-    ofs.close();
-
-    realFile = rootPath + "delete.json";
-}
-
 AnalysisState RequestData::analysisRequest()
 {
-    cout << "realFile before: " << realFile << endl;
-
-    cout << "[analysisRequest] file_name:" << file_name << " method: " << method << endl;
-
-    //解析 posts/1 为 uri=posts , uri_after=1
-    uri = "";
-    uri_after = "";
-
-    int pos = file_name.find_first_of("/");
-
-    if (pos != -1)
+    if (method == METHOD_POST)
     {
-        uri = file_name.substr(0, pos);
-        uri_after = file_name.substr(pos + 1);
+        int length = stoi(headers["Content-Length"]);
+        vector<char> data(inBuffer.begin(), inBuffer.begin() + length);
+
+        string postInfo = inBuffer.substr(0, length);
+        cout << "METHOD_POST inBuffer " << postInfo << endl;
+
+        outBuffer = outBuffer + "\{ \"test\": \"post\" }";
+        return ANALYSIS_SUCCESS;
+    }
+    else if (method == METHOD_GET)
+    {
+		std::string sql1 = "select * from student";
+		ISQLData::ptr m_ptr1=_mySql->query(sql1);
+		m_ptr1->showAllRes(); 
+		cout<<"——————————————————————————————"<<endl;
+		
+        //待优化成json信息返回，各类Content-type返回，或者转给其他进程处理zeromq
+        cout << "headers BEGIN" << endl;
+        for (std::unordered_map<std::string, std::string>::iterator it = headers.begin(); it!=headers.end(); it++)
+        {
+            cout << it->first << ":" << it->second << endl;
+        }
+        cout << "headers END" << endl;
+
+        string res = "\{ \"method\": \"get\",";
+
+        res = res + "\"file_name\":" + file_name + "}";
+
+        string header;
+        header += "HTTP/1.1 200 OK\r\n";
+        if (headers.find("Connection") != headers.end() && (headers["Connection"] == "Keep-Alive" || headers["Connection"] == "keep-alive"))
+        {
+            keep_alive = true;
+            header += string("Connection: Keep-Alive\r\n") + "Keep-Alive: timeout=" + to_string(5 * 60 * 1000) + "\r\n";
+        }
+
+        header += "Access-Control-Allow-Origin: *\r\n";
+        header += "Content-type: application/json\r\n";
+        header += "Content-Length: " + to_string(res.size()) + "\r\n";
+
+        header += "\r\n";
+        outBuffer += header;
+        outBuffer += res;
+
+        return ANALYSIS_SUCCESS;
     }
     else
     {
-        uri = file_name;
-    }
-
-    if (rest_uri.count(uri) <= 0)
-    {
-        handleError(fd, 404, "Not Found!");
+        handleError(fd, 400, "method NOT GET OR POST");
         return ANALYSIS_ERROR;
     }
-
-    switch (method)
-    {
-    case METHOD_GET:
-        analysisGetRequest();
-        break;
-    case METHOD_POST:
-        parseContent();
-        analysisPostRequest();
-        break;
-    case METHOD_PUT:
-        parseContent();
-        analysisPutRequest();
-        break;
-    case METHOD_DELETE:
-        analysisDeleteRequest();
-        break;
-    default:
-        break;
-    }
-
-    //提取公共部分
-    string header;
-    header += "HTTP/1.1 200 OK\r\n";
-    if (headers.find("Connection") != headers.end() && headers["Connection"] == "Keep-Alive")
-    {
-        keep_alive = true;
-        header += string("Connection: Keep-Alive\r\n") + "Keep-Alive: timeout=" + to_string(5 * 60 * 1000) + "\r\n";
-    }
-
-    cout << "realFile after: " << realFile << endl;
-
-    struct stat sbuf;
-    if (stat(realFile.c_str(), &sbuf) < 0)
-    {
-        header.clear();
-        handleError(fd, 404, "Not Found!");
-        return ANALYSIS_ERROR;
-    }
-	
-	//解决has been blocked by CORS policy: No 'Access-Control-Allow-Origin' 
-	//header is present on the requested resource.
-	header += "Access-Control-Allow-Origin: *\r\n";
-	
-    header += "Content-type: application/json\r\n";
-    header += "Content-Length: " + to_string(sbuf.st_size) + "\r\n";
-    // 头部结束
-    header += "\r\n";
-    outBuffer += header;
-
-    int src_fd = open(realFile.c_str(), O_RDONLY, 0);
-    char *src_addr = static_cast<char *>(mmap(NULL, sbuf.st_size, PROT_READ, MAP_PRIVATE, src_fd, 0));
-    close(src_fd);
-
-    outBuffer += src_addr;
-    munmap(src_addr, sbuf.st_size);
-
-    return ANALYSIS_SUCCESS;
 }
 
 void RequestData::handleError(int fd, int err_num, string short_msg)
@@ -981,26 +629,4 @@ void RequestData::handleError(int fd, int err_num, string short_msg)
     writen(fd, send_buff, strlen(send_buff));
     sprintf(send_buff, "%s", body_buff.c_str());
     writen(fd, send_buff, strlen(send_buff));
-}
-
-void RequestData::disableReadAndWrite()
-{
-    isAbleRead = false;
-    isAbleWrite = false;
-}
-void RequestData::enableRead()
-{
-    isAbleRead = true;
-}
-void RequestData::enableWrite()
-{
-    isAbleWrite = true;
-}
-bool RequestData::canRead()
-{
-    return isAbleRead;
-}
-bool RequestData::canWrite()
-{
-    return isAbleWrite;
 }
