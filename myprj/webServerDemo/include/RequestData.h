@@ -15,16 +15,12 @@
 #include <memory>
 #include <map>
 #include "json/json.h"
-#include "StiBel/Data/MySQL/MySQL.h"
 
-using namespace StiBel::Data::MySQL;
 const int MAX_BUFF = 4096;
 const int AGAIN_MAX_TIMES = 200;
 const int EPOLL_WAIT_TIME = 500;
 const int DEFAULT_EXPIRED_TIME = 2000;             // ms
 const int DEFAULT_KEEP_ALIVE_TIME = 5 * 60 * 1000; // ms
-const std::string rootPath = "../myprj/webServer/webContent/";
-const std::string cgiPath = "./CGISQL.cgi";
 
 enum ProcessState
 {
@@ -165,7 +161,6 @@ private:
 
   bool isAbleRead;
   bool isAbleWrite;
-  static MySQL::ptr _mySql;
 };
 
 #endif //__STIBEL_REQUESTDATA_H__

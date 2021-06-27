@@ -14,35 +14,13 @@
 #include <algorithm>
 #include <cstdlib>
 #include <fstream>
-#include "StiBel/Data/MySQL/MySQL.h"
+#include "zhelpers.hpp"
 
 using namespace std;
 using StiBel::ShellUtil;
-using namespace StiBel::Data::MySQL;
 
 pthread_once_t MimeType::once_control = PTHREAD_ONCE_INIT;
 std::unordered_map<std::string, std::string> MimeType::mime;
-MySQL::ptr RequestData::_mySql=NULL;
-
-void RequestData::connMySql()
-{
-	if(_mySql!=NULL)
-		return;
-    std::map<std::string, std::string> params;
-    //数据库的参数
-    params["host"] = "1.15.109.169";
-    params["user"] = "root";
-    params["port"] = "3307";
-    params["passwd"] = "123456";
-    params["dbname"] = "student";
-
-    MySQL::ptr mysql(new MySQL(params));
-    if(!mysql->connect()) {
-        std::cout << "connect fail" << std::endl;
-        return;
-    }
-    _mySql=mysql;
-}
 
 void MimeType::init()
 {
@@ -81,7 +59,6 @@ RequestData::RequestData() : now_read_pos(0),
                              error(false)
 {
     cout << "RequestData()" << endl;
-    connMySql();
 }
 
 RequestData::RequestData(int _epollfd, int _fd, std::string _path) : now_read_pos(0),
@@ -97,7 +74,6 @@ RequestData::RequestData(int _epollfd, int _fd, std::string _path) : now_read_po
                                                                      error(false)
 {
     cout << "RequestData()" << endl;
-    connMySql();
 }
 
 RequestData::~RequestData()
@@ -567,22 +543,22 @@ AnalysisState RequestData::analysisRequest()
     }
     else if (method == METHOD_GET)
     {
-		std::string sql1 = "select * from student";
-		ISQLData::ptr m_ptr1=_mySql->query(sql1);
-		m_ptr1->showAllRes(); 
-		cout<<"——————————————————————————————"<<endl;
+        zmq::context_t context(1);
+
+        zmq::socket_t requester(context, ZMQ_REQ);
+		int timeout = 5000;
+		zmq_setsockopt (requester, ZMQ_RCVTIMEO, &timeout, sizeof(timeout));
+		//zmq_setsockopt (requester, ZMQ_SNDTIMEO, &timeout, sizeof(timeout));
+        requester.connect("tcp://localhost:5559");
+
+        s_send(requester, file_name);
+        std::string recvStr = s_recv(requester);
 		
-        //待优化成json信息返回，各类Content-type返回，或者转给其他进程处理zeromq
-        cout << "headers BEGIN" << endl;
-        for (std::unordered_map<std::string, std::string>::iterator it = headers.begin(); it!=headers.end(); it++)
-        {
-            cout << it->first << ":" << it->second << endl;
-        }
-        cout << "headers END" << endl;
+		std::cout << "Received reply " << " [" << recvStr << "]" << std::endl;
 
         string res = "\{ \"method\": \"get\",";
 
-        res = res + "\"file_name\":" + file_name + "}";
+        res = res + "\"recvStr\":" + recvStr + "}";
 
         string header;
         header += "HTTP/1.1 200 OK\r\n";
