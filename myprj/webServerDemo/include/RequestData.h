@@ -136,6 +136,10 @@ private:
   URIState parseURI();
   HeaderState parseHeaders();
   AnalysisState analysisRequest();
+  void handleReutrnInfo(std::string info);
+  std::string getPostContent();
+  std::string analysisPostRequest();
+  std::string analysisGetRequest();
 
 private:
   std::string path;

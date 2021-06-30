@@ -9,9 +9,11 @@
 #include "zhelpers.hpp"
 #include "StiBel/Data/MySQL/MySQL.h"
 #include "StiBel/Util.h"
+#include "StiBel/JSON/JsonUtil.h"
 #include <vector>
 
 using namespace StiBel::Data::MySQL;
+using namespace StiBel::JSON;
 using StiBel::StringUtil;
 
 MySQL::ptr _mySql=NULL;
@@ -41,7 +43,8 @@ int main (int argc, char *argv[])
     zmq::context_t context(1);
 
 	zmq::socket_t responder(context, ZMQ_REP);
-	responder.connect("tcp://localhost:5560");
+	//responder.connect("tcp://localhost:5560");
+	responder.connect("ipc://databaseresponse.ipc");
 	
 	connMySql();
 	
@@ -51,8 +54,10 @@ int main (int argc, char *argv[])
 		std::string string = s_recv (responder);
 		
 		std::cout << "Received request: " << string << std::endl;
+		std::cout << "Received request: " << JsonUtil::getStr(string,"method") << std::endl;
+		std::cout << "Received request: " << JsonUtil::getStr(string,"url") << std::endl;
 		
-		std::vector<std::string> pairslist = StringUtil::mySplit(string, "/");
+		std::vector<std::string> pairslist = StringUtil::mySplit(JsonUtil::getStr(string,"url"), "/");
 		
 		std::string sql1 = "select * from ";
 		std::string retStr="";
@@ -72,6 +77,13 @@ int main (int argc, char *argv[])
 					tableList.push_back(m_ptr->getString(j));
 				}
 			}
+			
+			for(int i=0;i<tableList.size();i++)
+			{
+				std::cout << "tableList: " << tableList[i]<<std::endl;
+			}
+			
+			std::cout << "tableList test" <<std::endl;
 			
 			std::vector<std::string>::iterator s=find(tableList.begin(),tableList.end(),pairslist[1]);
 			

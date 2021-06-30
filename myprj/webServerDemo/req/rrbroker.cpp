@@ -14,8 +14,11 @@ int main (int argc, char *argv[])
     zmq::socket_t frontend (context, ZMQ_ROUTER);
     zmq::socket_t backend (context, ZMQ_DEALER);
 
-    frontend.bind("tcp://*:5559");
-    backend.bind("tcp://*:5560");
+    //frontend.bind("tcp://*:5559");
+    //backend.bind("tcp://*:5560");
+
+    frontend.bind("ipc://databaserequest.ipc");
+    backend.bind("ipc://databaseresponse.ipc");
 
     //  Initialize poll set
     zmq::pollitem_t items [] = {

@@ -14,7 +14,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include <fstream>
-#include "zhelpers.hpp"
+#include "ZeroMqUtil.h"
 
 using namespace std;
 using StiBel::ShellUtil;
@@ -528,53 +528,101 @@ HeaderState RequestData::parseHeaders()
     return PARSE_HEADER_AGAIN;
 }
 
+void RequestData::handleReutrnInfo(string info)
+{
+    string header;
+    header += "HTTP/1.1 200 OK\r\n";
+    if (headers.find("Connection") != headers.end() && (headers["Connection"] == "Keep-Alive" || headers["Connection"] == "keep-alive"))
+    {
+        keep_alive = true;
+        header += string("Connection: Keep-Alive\r\n") + "Keep-Alive: timeout=" + to_string(5 * 60 * 1000) + "\r\n";
+    }
+
+    header += "Access-Control-Allow-Origin: *\r\n";
+    header += "Content-type: application/json\r\n";
+    header += "Content-Length: " + to_string(info.size()) + "\r\n";
+
+    header += "\r\n";
+    outBuffer += header;
+    outBuffer += info;
+}
+
+string RequestData::getPostContent()
+{
+    int length = stoi(headers["Content-Length"]);
+    string postInfo = inBuffer.substr(0, length);
+    cout << "METHOD_POST inBuffer " << postInfo << endl;
+
+    return postInfo;
+}
+
+string RequestData::analysisPostRequest()
+{
+    //组织postJson内容
+    //string postJson = "\{ \"method\": \"post\",";
+    //postJson += "\"url\":" + file_name + ",";
+    //postJson += "\"content\":" + getPostContent() + "}";
+	
+	Json::Value postJson;
+	Json::FastWriter writer;
+	
+	postJson["method"] = "post";
+    postJson["url"] = file_name;
+	postJson["content"] = getPostContent();
+	
+	string postJsonStr = writer.write(postJson);
+	cout<<postJsonStr<<endl; 
+
+    //zeromq发送请求
+    std::string recvInfo = ZeroMqUtil::sendZeroMqMessage(1, "databaserequest", postJsonStr);
+
+    //组织返回结果
+    string res = "\{ \"method\": \"post\",";
+    res = res + "\"recvInfo\":" + recvInfo + "}";
+
+    return res;
+}
+
+//frontend.bind("ipc://databaserequest.ipc");
+//backend.bind("ipc://databaseresponse.ipc");
+string RequestData::analysisGetRequest()
+{
+    //组织getJson内容
+    //string getJson = "\{ \"method\": \"get\",";
+    //getJson += "\"url\":" + file_name + "}";
+	
+	Json::Value getJson;
+	Json::FastWriter writer;
+	
+	getJson["method"] = "get";
+    getJson["url"] = file_name;
+	
+	string getJsonStr = writer.write(getJson);
+	cout<<getJsonStr<<endl; 
+	
+    //zeromq发送请求
+    std::string recvInfo = ZeroMqUtil::sendZeroMqMessage(1, "databaserequest", getJsonStr);
+
+    //组织返回结果
+    string res = "\{ \"method\": \"get\",";
+    res = res + "\"recvInfo\":" + recvInfo + "}";
+
+    return res;
+}
+
 AnalysisState RequestData::analysisRequest()
 {
     if (method == METHOD_POST)
     {
-        int length = stoi(headers["Content-Length"]);
-        vector<char> data(inBuffer.begin(), inBuffer.begin() + length);
+        string res = analysisPostRequest();
+        handleReutrnInfo(res);
 
-        string postInfo = inBuffer.substr(0, length);
-        cout << "METHOD_POST inBuffer " << postInfo << endl;
-
-        outBuffer = outBuffer + "\{ \"test\": \"post\" }";
         return ANALYSIS_SUCCESS;
     }
     else if (method == METHOD_GET)
     {
-        zmq::context_t context(1);
-
-        zmq::socket_t requester(context, ZMQ_REQ);
-		int timeout = 5000;
-		zmq_setsockopt (requester, ZMQ_RCVTIMEO, &timeout, sizeof(timeout));
-		//zmq_setsockopt (requester, ZMQ_SNDTIMEO, &timeout, sizeof(timeout));
-        requester.connect("tcp://localhost:5559");
-
-        s_send(requester, file_name);
-        std::string recvStr = s_recv(requester);
-		
-		std::cout << "Received reply " << " [" << recvStr << "]" << std::endl;
-
-        string res = "\{ \"method\": \"get\",";
-
-        res = res + "\"recvStr\":" + recvStr + "}";
-
-        string header;
-        header += "HTTP/1.1 200 OK\r\n";
-        if (headers.find("Connection") != headers.end() && (headers["Connection"] == "Keep-Alive" || headers["Connection"] == "keep-alive"))
-        {
-            keep_alive = true;
-            header += string("Connection: Keep-Alive\r\n") + "Keep-Alive: timeout=" + to_string(5 * 60 * 1000) + "\r\n";
-        }
-
-        header += "Access-Control-Allow-Origin: *\r\n";
-        header += "Content-type: application/json\r\n";
-        header += "Content-Length: " + to_string(res.size()) + "\r\n";
-
-        header += "\r\n";
-        outBuffer += header;
-        outBuffer += res;
+        string res = analysisGetRequest();
+        handleReutrnInfo(res);
 
         return ANALYSIS_SUCCESS;
     }
