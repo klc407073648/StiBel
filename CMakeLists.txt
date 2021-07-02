@@ -226,7 +226,7 @@ LINK_DIRECTORIES(${3PART_DIR} ${COMM_DIR})
 #添加子路径
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
 	SUBDIRS(
-        ./myprj
+		./myprj/webServerTest
 	)
 endif()
 
