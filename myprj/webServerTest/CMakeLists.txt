@@ -1,5 +1,5 @@
 #头文件目录
-INCLUDE_DIRECTORIES( ${STIBEL_COMMON_INCLUDE} ${JSONCPP_INCLUDE} ${STIBEL_JSON_INCLUDE} ${STIBEL_MYSQL_INCLUDE} ${ZEROMQ_INCLUDE} ${STIBEL_LOG_INCLUDE} ${LOG4CPP_INCLUDE} ./include )
+INCLUDE_DIRECTORIES( ${STIBEL_COMMON_INCLUDE} ${JSONCPP_INCLUDE} ${STIBEL_JSON_INCLUDE} ${STIBEL_MYSQL_INCLUDE} ${ZEROMQ_INCLUDE} ${STIBEL_LOG_INCLUDE} ${LOG4CPP_INCLUDE} ./include ./req/include )
 
 #目录源码路径
 SET( WEBSERVER_SRC_DIR ./source )
@@ -17,14 +17,14 @@ ADD_EXECUTABLE( webServerTest ${WEBSERVER_FILES})
 TARGET_LINK_LIBRARIES( webServerTest ${WEBSERVER_LIB})
 
 #生成 
-ADD_EXECUTABLE( req_rrbrokerTest ./req/rrbroker.cpp)
+ADD_EXECUTABLE( rrbroker_main ./req/source/rrbroker_main.cpp ./req/source/rrBroker.cpp)
 
 #连接生成相关库
-TARGET_LINK_LIBRARIES( req_rrbrokerTest ${WEBSERVER_LIB} )
+TARGET_LINK_LIBRARIES( rrbroker_main ${WEBSERVER_LIB} )
 
 #生成 
-ADD_EXECUTABLE( req_rrserverTest ./req/rrserver.cpp)
+ADD_EXECUTABLE( rrserver_main ./req/source/rrserver_main.cpp ./req/source/rrServer.cpp)
 
 #连接生成相关库
-TARGET_LINK_LIBRARIES( req_rrserverTest ${WEBSERVER_LIB} )
+TARGET_LINK_LIBRARIES( rrserver_main ${WEBSERVER_LIB} )
 

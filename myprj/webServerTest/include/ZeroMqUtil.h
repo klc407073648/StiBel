@@ -26,7 +26,7 @@ class ZeroMqUtil
 public:
   ZeroMqUtil();
   ~ZeroMqUtil();
-  static std::string sendZeroMqMessage(ZeroMqProtocol protocol, const std::string &targetObj, const std::string &sendContent, int timeOut=0);
+  static std::string sendZeroMqMessage(ZeroMqProtocol protocol, const std::string &connectObj, const std::string &sendContent, int timeOut=0);
 private:
   DECLARE_STATIC_LOGGERMANAGER();
   

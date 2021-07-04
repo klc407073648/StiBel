@@ -11,9 +11,9 @@ ZeroMqUtil::~ZeroMqUtil()
 {
 }
 
-std::string ZeroMqUtil::sendZeroMqMessage(ZeroMqProtocol protocol, const std::string &targetObj, const std::string &sendContent, int timeOut)
+std::string ZeroMqUtil::sendZeroMqMessage(ZeroMqProtocol protocol, const std::string &connectObj, const std::string &sendContent, int timeOut)
 {
-  LogDebug("ZeroMqUtil::sendZeroMqMessage protocol:[%d],targetObj:[%s],sendContent:[%s],timeOut:[%d]",protocol,targetObj.c_str(),sendContent.c_str(),timeOut);
+  LogDebug("ZeroMqUtil::sendZeroMqMessage protocol:[%d],connectObj:[%s],sendContent:[%s],timeOut:[%d]",protocol,connectObj.c_str(),sendContent.c_str(),timeOut);
   
   zmq::context_t context(1);
   zmq::socket_t requester(context, ZMQ_REQ);
@@ -29,9 +29,9 @@ std::string ZeroMqUtil::sendZeroMqMessage(ZeroMqProtocol protocol, const std::st
   switch (protocol)
   {
     case TCP:
-      connectStr = "tcp://" + targetObj;break;
+      connectStr = "tcp://" + connectObj;break;
     case IPC:
-      connectStr = "ipc://" + targetObj + ".ipc";break;
+      connectStr = "ipc://" + connectObj + ".ipc";break;
     default:
       break;
   }

@@ -1,0 +1,2 @@
+V1:只有rrbroker，rrserver，完成基础功能。
+V2:进行封装，采用log日志打印。
