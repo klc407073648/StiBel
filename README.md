@@ -24,3 +24,24 @@
 * [fastcgi+nginx实践](./guide/fastcgiApp.md)
 * [restful接口实现](./guide/restfulApp.md)
 * [简单的webServer服务器搭建](./guide/webServer.md)
+
+## 调试命令
+
+```
+g++ -g -o test_person test_person.cpp ./person.pb.cc -I/usr/local/protobuf/include -lprotobuf -pthread -std=c++11
+
+export LD_LIBRARY_PATH=/usr/local/protobuf/lib
+ldconfig
+
+ln -sf /usr/local/lib64/libstdc++.so.6.0.26 /usr/lib64/libstdc++.so.6
+```
+
+```
+grpc 例子编译问题：
+
+export LD_LIBRARY_PATH=/home/build_lib/StiBel/lib/3partlib/grpc/lib:/home/build_lib/StiBel/lib/3partlib/grpc/lib64
+ldconfig
+
+ln -sf /usr/local/lib64/libstdc++.so.6.0.26 /lib64/libstdc++.so.6
+直接把/lib64/libstdc++.so.6.0.19 移到其他路径下，创建上述软链接
+```
