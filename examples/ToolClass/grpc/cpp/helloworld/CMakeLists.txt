@@ -9,11 +9,11 @@ set(hw_grpc_srcs "${CMAKE_CURRENT_BINARY_DIR}/helloworld.grpc.pb.cc")
 set(hw_grpc_hdrs "${CMAKE_CURRENT_BINARY_DIR}/helloworld.grpc.pb.h")
 add_custom_command(
       OUTPUT "${hw_proto_srcs}" "${hw_proto_hdrs}" "${hw_grpc_srcs}" "${hw_grpc_hdrs}"
-      COMMAND /home/build_lib/StiBel/lib/3partlib/bin/protoc
+      COMMAND ${3PART_BIN_OUTPUT_PATH}/protoc
       ARGS --grpc_out "${CMAKE_CURRENT_BINARY_DIR}"
         --cpp_out "${CMAKE_CURRENT_BINARY_DIR}"
         -I "${hw_proto_path}"
-        --plugin=protoc-gen-grpc="/home/build_lib/StiBel/lib/3partlib/bin/grpc_cpp_plugin"
+        --plugin=protoc-gen-grpc="${3PART_BIN_OUTPUT_PATH}/grpc_cpp_plugin"
         "${hw_proto}"
       DEPENDS "${hw_proto}")
 
