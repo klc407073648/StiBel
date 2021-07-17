@@ -13,7 +13,7 @@ add_subdirectory(share_ptrUse)
 add_subdirectory(scopeFun)
 
 if(PROTOBUF_FOUND)
-  add_subdirectory(protobufUse)
+  #add_subdirectory(protobufUse)
 else()
   add_subdirectory(protobufUse EXCLUDE_FROM_ALL)
 endif()

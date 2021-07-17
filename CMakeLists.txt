@@ -53,13 +53,13 @@ SET(GRPC_INCLUDE  	 	  ${3PART_INCLUDE}/grpc/include)
 SET(COMM_INCLUDE  ${PROJECT_SOURCE_DIR}/include/comlib)
 
 SET(STIBEL_COMMON_INCLUDE   ${COMM_INCLUDE}/StiBel/Common/include)
-SET(STIBEL_MYSQL_INCLUDE  	${COMM_INCLUDE}/StiBel/Data/MySQL/include)
+SET(STIBEL_MYSQL_INCLUDE  	${COMM_INCLUDE}/StiBel/Data/MySQL/include ${3PART_INCLUDE}/mysql/include)
 SET(STIBEL_REDIS_INCLUDE  	${COMM_INCLUDE}/StiBel/Data/Redis/include)
 SET(STIBEL_LOG_INCLUDE  	${COMM_INCLUDE}/StiBel/Log/include)
 SET(STIBEL_JSON_INCLUDE  	${COMM_INCLUDE}/StiBel/JSON/include)
 
 # 设置各类应用库的lib文件路径
-SET(3PART_DIR  ${PROJECT_SOURCE_DIR}/lib/3partlib ${PROJECT_SOURCE_DIR}/lib/3partlib/grpc/lib  ${PROJECT_SOURCE_DIR}/lib/3partlib/grpc/lib64)
+SET(3PART_DIR  ${PROJECT_SOURCE_DIR}/lib/3partlib ${PROJECT_SOURCE_DIR}/lib/3partlib/grpc/lib  ${PROJECT_SOURCE_DIR}/lib/3partlib/grpc/lib64 ${PROJECT_SOURCE_DIR}/lib/3partlib/mysql)
 SET(COMM_DIR   ${PROJECT_SOURCE_DIR}/lib/comlib)
 
 #cmake 在find_path和find_library时,会搜索一些默认的路径
@@ -240,7 +240,7 @@ LINK_DIRECTORIES(${3PART_DIR} ${COMM_DIR})
 #添加子路径
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
 	SUBDIRS(
-		./examples/ToolClass/grpc
+		./myprj
 	)
 endif()
 

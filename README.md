@@ -45,3 +45,11 @@ ldconfig
 ln -sf /usr/local/lib64/libstdc++.so.6.0.26 /lib64/libstdc++.so.6
 直接把/lib64/libstdc++.so.6.0.19 移到其他路径下，创建上述软链接
 ```
+
+```
+遗留docker 中未安装mysql库
+docker build -f ./Dockerfile -t docker.io/klc407073648/centos_build_lib:v2.0 .
+
+#根据容器的状态，删除Exited状态的容器
+sudo docker rm $(sudo docker ps -qf status=exited)
+```

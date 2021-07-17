@@ -1,0 +1,13 @@
+Status GetFeature(ServerContext* context, const Point* point,
+                    Feature* feature) override 
+
+Status ListFeatures(ServerContext* context,
+                      const routeguide::Rectangle* rectangle,
+                      ServerWriter<Feature>* writer)
+
+Status RecordRoute(ServerContext* context, ServerReader<Point>* reader,
+                     RouteSummary* summary) 
+
+
+Status RouteChat(ServerContext* context,
+                   ServerReaderWriter<RouteNote, RouteNote>* stream)

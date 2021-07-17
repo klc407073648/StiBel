@@ -3,6 +3,7 @@ add_custom_command(OUTPUT person.pb.cc person.pb.h
   ARGS --cpp_out . ${CMAKE_CURRENT_SOURCE_DIR}/person.proto -I${CMAKE_CURRENT_SOURCE_DIR}
   DEPENDS person.proto
   VERBATIM )
+)
 
 set_source_files_properties(person.pb.cc PROPERTIES COMPILE_FLAGS "-Wno-conversion -Wno-shadow")
 include_directories(${PROJECT_BINARY_DIR}/examples/FunctionStudy/protobufUse)  
