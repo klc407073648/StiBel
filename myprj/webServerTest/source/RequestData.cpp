@@ -587,10 +587,15 @@ string RequestData::analysisPostRequest()
     std::string recvInfo = ZeroMqUtil::sendZeroMqMessage(1, "databaserequest", postJsonStr);
 
     //组织返回结果
-    string res = "\{ \"method\": \"post\",";
-    res = res + "\"recvInfo\":" + recvInfo + "}";
+    Json::Value resJson;
+    Json::FastWriter resWriter;
 
-    LogDebug("RequestData::analysisPostRequest() res:[%s]", res.c_str());
+    getJson["method"] = "get";
+    getJson["recvInfo"] = recvInfo;
+
+    string resJsonStr = resWriter.write(resJson);
+
+    LogDebug("RequestData::analysisPostRequest() resJsonStr:[%s]", resJsonStr.c_str());
 
     LogDebug("RequestData::analysisPostRequest() end");
 
@@ -614,10 +619,15 @@ string RequestData::analysisGetRequest()
     std::string recvInfo = ZeroMqUtil::sendZeroMqMessage(1, "databaserequest", getJsonStr);
 
     //组织返回结果
-    string res = "\{ \"method\": \"get\",";
-    res = res + "\"recvInfo\":" + recvInfo + "}";
+    Json::Value resJson;
+    Json::FastWriter resWriter;
 
-    LogDebug("RequestData::analysisGetRequest() res:[%s]", res.c_str());
+    getJson["method"] = "get";
+    getJson["recvInfo"] = recvInfo;
+
+    string resJsonStr = resWriter.write(resJson);
+
+    LogDebug("RequestData::analysisGetRequest() resJsonStr:[%s]", resJsonStr.c_str());
 
     LogDebug("RequestData::analysisGetRequest() end");
     return res;
