@@ -590,8 +590,8 @@ string RequestData::analysisPostRequest()
     Json::Value resJson;
     Json::FastWriter resWriter;
 
-    getJson["method"] = "get";
-    getJson["recvInfo"] = recvInfo;
+    resJson["method"] = "get";
+    resJson["recvInfo"] = recvInfo;
 
     string resJsonStr = resWriter.write(resJson);
 
@@ -599,7 +599,7 @@ string RequestData::analysisPostRequest()
 
     LogDebug("RequestData::analysisPostRequest() end");
 
-    return res;
+    return resJsonStr;
 }
 
 string RequestData::analysisGetRequest()
@@ -622,15 +622,15 @@ string RequestData::analysisGetRequest()
     Json::Value resJson;
     Json::FastWriter resWriter;
 
-    getJson["method"] = "get";
-    getJson["recvInfo"] = recvInfo;
+    resJson["method"] = "get";
+    resJson["recvInfo"] = recvInfo;
 
     string resJsonStr = resWriter.write(resJson);
 
     LogDebug("RequestData::analysisGetRequest() resJsonStr:[%s]", resJsonStr.c_str());
 
     LogDebug("RequestData::analysisGetRequest() end");
-    return res;
+    return resJsonStr;
 }
 
 AnalysisState RequestData::analysisRequest()

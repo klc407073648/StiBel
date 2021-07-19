@@ -48,12 +48,13 @@ SET(POCO_INCLUDE  	 		${3PART_INCLUDE}/poco/include)
 SET(CPPUNIT_INCLUDE  	 	${3PART_INCLUDE}/cppunit/include)
 SET(YAMLCPP_INCLUDE  	 	${3PART_INCLUDE}/yamlcpp/include)
 SET(GRPC_INCLUDE  	 	  ${3PART_INCLUDE}/grpc/include)
+SET(MYQSL_INCLUDE  	 	  ${3PART_INCLUDE}/mysql/include)
 
 # 设置自封装应用库的头文件
 SET(COMM_INCLUDE  ${PROJECT_SOURCE_DIR}/include/comlib)
 
 SET(STIBEL_COMMON_INCLUDE   ${COMM_INCLUDE}/StiBel/Common/include)
-SET(STIBEL_MYSQL_INCLUDE  	${COMM_INCLUDE}/StiBel/Data/MySQL/include ${3PART_INCLUDE}/mysql/include)
+SET(STIBEL_MYSQL_INCLUDE  	${COMM_INCLUDE}/StiBel/Data/MySQL/include ${MYQSL_INCLUDE})
 SET(STIBEL_REDIS_INCLUDE  	${COMM_INCLUDE}/StiBel/Data/Redis/include)
 SET(STIBEL_LOG_INCLUDE  	${COMM_INCLUDE}/StiBel/Log/include)
 SET(STIBEL_JSON_INCLUDE  	${COMM_INCLUDE}/StiBel/JSON/include)
@@ -240,7 +241,7 @@ LINK_DIRECTORIES(${3PART_DIR} ${COMM_DIR})
 #添加子路径
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
 	SUBDIRS(
-		./myprj
+		./myprj/webServerTest
 	)
 endif()
 

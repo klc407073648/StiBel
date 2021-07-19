@@ -27,5 +27,5 @@ RUN echo 'source /etc/profile'   >> ~/.bashrc
 ENV project_name  StiBel
 
 #执行命令
-RUN chmod 777 /home/project/StiBel/buildMyPrj.sh
-CMD ["/bin/bash" "-c","/home/project/StiBel/buildMyPrj.sh"] 
+RUN chmod 777 /home/project/StiBel/start.sh
+CMD ["/bin/bash","-c","/home/project/StiBel/start.sh"] 
