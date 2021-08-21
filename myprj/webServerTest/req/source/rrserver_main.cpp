@@ -4,7 +4,7 @@ using StiBel::Log::LoggerManager;
 
 int main(int argc, char *argv[])
 {
-	LoggerManager::start("../conf/log4cpp.conf");
+	LoggerManager::start("../conf/log4cpp_server.conf");
 
 	rrServer *m_rrServer = new rrServer();
 	m_rrServer->start();

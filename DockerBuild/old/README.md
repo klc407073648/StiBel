@@ -1,7 +1,5 @@
 # StiBel项目docker镜像构建
 
-
-
 ## docker镜像制作
 
 所需文件的目录结构如下：

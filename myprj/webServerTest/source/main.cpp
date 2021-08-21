@@ -8,7 +8,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    LoggerManager::start("../conf/log4cpp.conf");
+    LoggerManager::start("../conf/log4cpp_webServer.conf");
 
     int threadNum = 4;
     int port = 9950;
