@@ -2,7 +2,7 @@
 curPath=/home/project/StiBel
 
 cd $curPath/deploy
-./webServerTest &
+./webServer_main &
 ./rrbroker_main &
 ./rrserver_main &
 

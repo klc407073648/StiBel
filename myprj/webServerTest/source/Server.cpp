@@ -23,6 +23,8 @@ Server::Server(int threadNum, int port,int queueSize)
       _epollInited((Epoll::epoll_init(MAXEVENTS, LISTENQ)) ==0),
       _threadPollInited((ThreadPool::threadpool_create(_threadNum, _queueSize)) ==0),
       _listenFd(socket_bind_listen(_port)) {
+  LogDebug("Server::Server() threadNum:[%d],port:[%d],queueSize:[%d]", threadNum, port, queueSize);
+  
   handle_for_sigpipe();
 
   LogDebug("Server::Server()");

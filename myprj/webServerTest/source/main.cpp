@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    cout << "threadNum: " << threadNum << ", port: " << port << ", queueSize: " << queueSize << endl;
+    //cout << "threadNum: " << threadNum << ", port: " << port << ", queueSize: " << queueSize << endl;
 
     Server myHTTPServer(threadNum, port, queueSize);
     myHTTPServer.start();
