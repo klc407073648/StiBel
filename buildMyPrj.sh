@@ -1,6 +1,10 @@
 curPath=`pwd`
 echo $curPath
 
+cd $curPath
+buildTime=`date +"%Y%m%d"`
+tar zxf StiBel_${buildTime}.tar.gz
+
 cd $curPath/build
 rm -rf ./*
 

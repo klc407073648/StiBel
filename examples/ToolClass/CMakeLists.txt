@@ -19,4 +19,4 @@ endif()
 
 add_subdirectory(cppunit)
 
-#add_subdirectory(yamlcpp)
+add_subdirectory(yamlcpp)

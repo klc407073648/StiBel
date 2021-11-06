@@ -1,8 +1,32 @@
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <stdio.h>
+#include <string.h>
 #include <yaml-cpp/yaml.h> //注意带上 yaml-cpp/yaml.h 头文件
 
 using namespace std;
+
+string rootPath = "/../../../examples/ToolClass/yamlcpp/conf/";
+string curPath;
+
+std::string execShellPipe(std::string cmd)
+{
+	char res[1024]={0},*p;
+	 
+	FILE *fp = popen(cmd.c_str(),"r");
+	
+	if( fp != NULL)
+	{
+		fgets( res, sizeof(res), fp ); //遇到\n终止复制
+		if((p = strchr(res,'\n')) != NULL)
+			*p = '\0';
+		//fread( res, sizeof(char), sizeof(res), fp );
+		pclose(fp);
+	}
+	
+	return res;
+}
 
 void readYaml(const YAML::Node& node){
 	if(node.IsMap()){//是map
@@ -27,8 +51,9 @@ void readYaml(const YAML::Node& node){
 
 void fun1()
 {
+	curPath =execShellPipe("pwd");
 	//加载yml文件
-	YAML::Node node = YAML::LoadFile("./config1.yml");
+	YAML::Node node = YAML::LoadFile(curPath + rootPath + "config1.yml");
 	//读取yml文件,这里输出到控制台
 	readYaml(node);
 }
@@ -36,7 +61,8 @@ void fun1()
 //基础方法使用
 void fun2()
 {
-	YAML::Node config = YAML::LoadFile("./config2.yml");
+	curPath =execShellPipe("pwd");
+	YAML::Node config = YAML::LoadFile(curPath + rootPath + "config2.yml");
 
     cout << "Node type " << config.Type() << endl;
     cout << "skills type " << config["skills"].Type() << endl;
