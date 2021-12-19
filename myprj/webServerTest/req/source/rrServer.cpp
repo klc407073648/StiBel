@@ -30,17 +30,50 @@ void rrServer::init()
   LogDebug("rrServer::init() end");
 }
 
+std::string execShellPipe(std::string cmd)
+{
+	char res[1024]={0},*p;
+	 
+	FILE *fp = popen(cmd.c_str(),"r");
+	
+	if( fp != NULL)
+	{
+		fgets( res, sizeof(res), fp ); //遇到\n终止复制
+		if((p = strchr(res,'\n')) != NULL)
+			*p = '\0';
+		//fread( res, sizeof(char), sizeof(res), fp );
+		pclose(fp);
+	}
+	
+	return res;
+}
+
 void rrServer::connMySql()
 {
   if (_mySql != NULL)
     return;
+
   std::map<std::string, std::string> params;
   //数据库的参数
-  params["host"] = "1.15.109.169";
-  params["user"] = "root";
-  params["port"] = "3307";
-  params["passwd"] = "123456";
-  params["dbname"] = "student";
+
+  //需要通过配置文件读取
+  string curPath = execShellPipe("pwd");
+  string fullPath = curPath + "/../conf/" + "mysql.yml";
+  LogDebug("[connMySql] fullPath:[%s]", fullPath.c_str());
+  YAML::Node config = YAML::LoadFile(fullPath);
+  
+  cout << "name:" << config["name"].as<string>() << endl;
+  cout << "sex:" << config["sex"].as<string>() << endl;
+  
+  params["host"] = config["mysql"]["host"].as<string>();
+  params["user"] = config["mysql"]["user"].as<string>();
+  params["port"] = config["mysql"]["port"].as<string>();
+  params["passwd"] = config["mysql"]["passwd"].as<string>();
+  params["dbname"] = config["mysql"]["dbname"].as<string>();
+
+  for(std::map<std::string, std::string>::iterator iter = params.begin(); iter != params.end(); iter++) {
+      LogDebug("[connMySql] params:[%s:%s]", (iter->first).c_str(),(iter->second).c_str());
+  }
 
   MySQL::ptr mysql(new MySQL(params));
   if (!mysql->connect())

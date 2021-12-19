@@ -1,12 +1,14 @@
-#! /bin/sh
+#!/bin/bash
+
 #进程名列表、工作路径、间隔时间
+export cur_path=`pwd`
 process_list='webServer_main rrbroker_main rrserver_main'
-workPath=/home/project/StiBel/deploy
+workPath=${cur_path}/../deploy
 intervalTime='5'
 
 ##日志路径、日志名称
-LOG_DIR=/home/project/StiBel/logs/logpath
-LOG_FILE=$LOG_DIR/swd.log
+LOG_DIR=${cur_path}/../logs/
+LOG_FILE=$LOG_DIR/swd/swd.log
 
 cd $workPath
 

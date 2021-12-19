@@ -16,6 +16,7 @@
 #include "StiBel/JSON/JsonUtil.h"
 #include "StiBel/Log/LoggerManager.h"
 #include <vector>
+#include <yaml-cpp/yaml.h>
 
 using namespace StiBel::Data::MySQL;
 using namespace StiBel::JSON;

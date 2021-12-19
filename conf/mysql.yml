@@ -1,0 +1,8 @@
+name: frank
+sex: male
+mysql:
+  host: 1.15.109.169
+  user: root
+  port: 3308
+  passwd: 456789
+  dbname: student
