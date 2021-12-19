@@ -5,8 +5,8 @@ export cur_path=`pwd`
 export work_path=$cur_path/..
 
 #日志路径、日志文件、日志级别
-log_dir=${work_path}/logs
-log_file=$log_dir/build/build.log
+log_dir=${work_path}/logs/build
+log_file=$log_dir/build.log
 log_level=4
 
 #日志级别

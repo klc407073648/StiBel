@@ -18,7 +18,7 @@ function buildMyprj() {
     logDebug "buildMyprj begin"
 
     cd $work_path
-    buildTime=`date +"%Y%m%d"`
+    buildTime=$(date +"%Y%m%d")
     tar zxf StiBel_${buildTime}.tar.gz
 
     logInfo "work_path:$work_path"
@@ -57,5 +57,15 @@ function runSwd() {
     logDebug "preDeal end"
 }
 
+function MAIN() {
+    logDebug "MAIN begin"
 
+    preDeal
+    buildMyprj
+    runMyprj
+    runSwd
 
+    logDebug "MAIN end"
+}
+
+MAIN

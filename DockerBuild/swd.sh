@@ -7,8 +7,8 @@ workPath=${cur_path}/../deploy
 intervalTime='5'
 
 ##日志路径、日志名称
-LOG_DIR=${cur_path}/../logs/
-LOG_FILE=$LOG_DIR/swd/swd.log
+LOG_DIR=${cur_path}/../logs/swd
+LOG_FILE=$LOG_DIR/swd.log
 
 cd $workPath
 
