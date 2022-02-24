@@ -1,7 +1,8 @@
 #!/bin/bash
 source ./common.sh
 
-function preDeal() {
+function preDeal() 
+{
     logDebug "preDeal begin"
 
     cp -r /usr/lib64/mysql/* /usr/lib/
@@ -14,11 +15,12 @@ function preDeal() {
     logDebug "preDeal end"
 }
 
-function buildMyprj() {
+function buildMyprj() 
+{
     logDebug "buildMyprj begin"
 
     cd $work_path
-    buildTime=$(date +"%Y%m%d")
+    buildTime=`date +"%Y%m%d"`
     tar zxf StiBel_${buildTime}.tar.gz
 
     logInfo "work_path:$work_path"
@@ -30,42 +32,19 @@ function buildMyprj() {
     cmake -DSTIBEL_BUILD_RELEASE_TYPE=ON -DSTIBEL_BUILD_EXAMPLES=OFF ..
     make -j4
 
+    checkBuildResult buildMyprj
+
     logDebug "buildMyprj end"
 }
 
-function runMyprj() {
-
-    logDebug "preDeal begin"
-
-    cd $work_path/deploy
-
-    ./webServer_main &
-    ./rrbroker_main &
-    ./rrserver_main &
-
-    logDebug "preDeal end"
-}
-
-function runSwd() {
-
-    logDebug "preDeal begin"
-
-    cd $work_path/DockerBuild
-
-    ./swd.sh &
-
-    logDebug "preDeal end"
-}
-
-function MAIN() {
-    logDebug "MAIN begin"
+function MAIN() 
+{
+    logDebug "build.sh MAIN begin"
 
     preDeal
     buildMyprj
-    runMyprj
-    runSwd
 
-    logDebug "MAIN end"
+    logDebug "build.sh MAIN end"
 }
 
 MAIN

@@ -86,3 +86,13 @@ function logError()
       write_log "$1"
    fi
 }
+
+function checkBuildResult()
+{
+   if [ $? -ne 0 ];then
+       write_log "check $1 fail"  && logError "check $1 fail"
+       exit 1
+   else
+       write_log "check $1 success"  && logDebug "check $1 success"
+   fi
+}
