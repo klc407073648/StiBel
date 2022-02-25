@@ -62,8 +62,8 @@ void rrServer::connMySql()
   LogDebug("[connMySql] fullPath:[%s]", fullPath.c_str());
   YAML::Node config = YAML::LoadFile(fullPath);
   
-  cout << "name:" << config["name"].as<string>() << endl;
-  cout << "sex:" << config["sex"].as<string>() << endl;
+  //cout << "name:" << config["name"].as<string>() << endl;
+  //cout << "sex:" << config["sex"].as<string>() << endl;
   
   params["host"] = config["mysql"]["host"].as<string>();
   params["user"] = config["mysql"]["user"].as<string>();
