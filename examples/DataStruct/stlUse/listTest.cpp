@@ -4,6 +4,13 @@
 
 using namespace std;
 
+// a predicate implemented as a function:
+bool single_digit (const int& value) { return (value<10); }
+
+// a predicate implemented as a class:
+struct is_odd {
+  bool operator() (const int& value) { return (value%2)==1; }
+};
 
 void testFun()
 {
@@ -19,14 +26,6 @@ void testFun()
     std::cout << ' ' << *it;
   std::cout << '\n';
 }
-
-// a predicate implemented as a function:
-bool single_digit (const int& value) { return (value<10); }
-
-// a predicate implemented as a class:
-struct is_odd {
-  bool operator() (const int& value) { return (value%2)==1; }
-};
 
 void testRemove()
 {
@@ -46,5 +45,6 @@ void testRemove()
 int main()
 {
 	testFun();
+  testRemove();
 	return 0;
 }
