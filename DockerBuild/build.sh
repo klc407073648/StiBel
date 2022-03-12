@@ -20,8 +20,8 @@ function buildMyprj()
     logDebug "buildMyprj begin"
 
     cd $work_path
-    buildTime=`date +"%Y%m%d"`
-    tar zxf StiBel_${buildTime}.tar.gz
+    #buildTime=`date +"%Y%m%d"`
+    tar zxf StiBel_V2.1.1.tar.gz
 
     logInfo "work_path:$work_path"
 
@@ -29,7 +29,7 @@ function buildMyprj()
 
     rm -rf ./*
 
-    cmake -DSTIBEL_BUILD_RELEASE_TYPE=ON -DSTIBEL_BUILD_EXAMPLES=OFF ..
+    cmake  -DCMAKE_BUILD_VERSION=V2.1.1 -DBUILD_EXAMPLES=ON -DBUILD_CTEST=ON ..
     make -j4
 
     checkBuildResult buildMyprj

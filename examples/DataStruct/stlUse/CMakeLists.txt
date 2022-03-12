@@ -1,2 +1,9 @@
+add_executable(listTest listTest.cpp)
 add_executable(mapTest mapTest.cpp)
-
+add_executable(multimapTest multimapTest.cpp)
+add_executable(multisetTest multisetTest.cpp)
+add_executable(priority_queueTest priority_queueTest.cpp)
+add_executable(queueTest queueTest.cpp)
+add_executable(setTest setTest.cpp)
+add_executable(stackTest stackTest.cpp)
+add_executable(vectorTest vectorTest.cpp)
