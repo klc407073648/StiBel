@@ -25,6 +25,22 @@
 * [restful接口实现](./guide/restfulApp.md)
 * [简单的webServer服务器搭建](./guide/webServer.md)
 
+## 生成文档
+
+```
+cd /home/klc/
+git clone https://github.com/doxygen/doxygen.git
+cd doxygen
+mkdir build && cd build
+cmake -G "Unix Makefiles" ..
+make && make install
+cd /home/klc/doxygen/test/StiBel/
+
+doxygen  -s  -g # 生成不含注释的Doxyfile
+doxygen
+
+```
+
 ## 调试命令
 
 ```

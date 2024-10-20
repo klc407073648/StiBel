@@ -167,6 +167,7 @@ SET(LIB_POCO
     PocoFoundation
     PocoNet
     PocoXML
+	PocoDataMySQL
 )
 SET(LIB_CPPUNIT cppunit dl)
 SET(LIB_MYSQL mysqlclient)
